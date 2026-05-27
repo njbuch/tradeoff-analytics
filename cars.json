@@ -1,0 +1,4693 @@
+{
+  "subject": "EdmundsDemo",
+  "columns": [
+    {
+      "key": "price",
+      "full_name": "Price",
+      "type": "numeric",
+      "is_objective": false,
+      "goal": "min",
+      "format": "number:0 | taPrefix:'$'",
+      "description": "Manufacturer's Suggested Retail Price (MSRP)"
+    },
+    {
+      "key": "engineSize",
+      "full_name": "Engine Volume",
+      "type": "numeric",
+      "is_objective": true,
+      "goal": "max",
+      "format": "number:1 | taSuffix:' L'",
+      "range": {
+        "low": 0,
+        "high": 10
+      },
+      "description": "The engine size in liters"
+    },
+    {
+      "key": "averageRating",
+      "full_name": "Average Rating",
+      "type": "numeric",
+      "is_objective": true,
+      "goal": "max",
+      "format": "number:1 | taSuffix:' stars'",
+      "range": {
+        "low": 0,
+        "high": 5
+      },
+      "description": "Average user-generated vehicle ratings and reviews that were submitted on Edmunds.com"
+    },
+    {
+      "key": "reviewsCount",
+      "full_name": "Number of Reviews",
+      "type": "numeric",
+      "is_objective": false,
+      "goal": "max",
+      "format": "number:0",
+      "description": "Number of user-generated vehicle ratings and reviews that were submitted on Edmunds.com"
+    },
+    {
+      "key": "power",
+      "full_name": "Power",
+      "type": "numeric",
+      "is_objective": true,
+      "goal": "max",
+      "format": "number:0 | taSuffix:' hp'",
+      "range": {
+        "low": 0,
+        "high": 710
+      },
+      "description": "The engine horsepower"
+    },
+    {
+      "key": "MPGCombined",
+      "full_name": "MPG Combined",
+      "type": "numeric",
+      "is_objective": false,
+      "goal": "max",
+      "format": "number:1 | taSuffix:' MPG'",
+      "range": {
+        "low": 0,
+        "high": 55
+      },
+      "description": "Miles Per Gallon. Computed as 55% in the city and 45% on a highway."
+    }
+  ],
+  "options": [
+    {
+      "key": 200727569,
+      "name": "Acura ILX",
+      "description": "Technology Plus Package 4dr Sedan (2.4L 4cyl 8AM)",
+      "values": {
+        "price": 32900,
+        "engineSize": 2.4,
+        "power": 201,
+        "MPGCombined": 30,
+        "averageRating": 4.05,
+        "reviewsCount": 15
+      }
+    },
+    {
+      "key": 200726801,
+      "name": "Acura MDX",
+      "description": "4dr SUV (3.5L 6cyl 9A)",
+      "values": {
+        "price": 43015,
+        "engineSize": 3.5,
+        "power": 290,
+        "MPGCombined": 23,
+        "averageRating": 3.791,
+        "reviewsCount": 37
+      }
+    },
+    {
+      "key": 200732587,
+      "name": "Acura RDX",
+      "description": "AcuraWatch Plus Package 4dr SUV AWD (3.5L 6cyl 6A)",
+      "values": {
+        "price": 38170,
+        "engineSize": 3.5,
+        "power": 279,
+        "MPGCombined": 23,
+        "averageRating": 4.31,
+        "reviewsCount": 29
+      }
+    },
+    {
+      "key": 200729234,
+      "name": "Acura RLX",
+      "description": "Advance Package 4dr Sedan (3.5L 6cyl 6A)",
+      "values": {
+        "price": 60450,
+        "engineSize": 3.5,
+        "power": 310,
+        "MPGCombined": 25,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401583116,
+      "name": "Acura TLX",
+      "description": "Technology Package 4dr Sedan (2.4L 4cyl 8AM)",
+      "values": {
+        "price": 35750,
+        "engineSize": 2.4,
+        "power": 206,
+        "MPGCombined": 29,
+        "averageRating": 4.429,
+        "reviewsCount": 14
+      }
+    },
+    {
+      "key": 401630280,
+      "name": "Alfa Romeo 4C",
+      "description": "Spider 2dr Convertible (1.7L 4cyl Turbo 6AM)",
+      "values": {
+        "price": 65900,
+        "engineSize": 1.7,
+        "power": 237,
+        "MPGCombined": 29,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401632434,
+      "name": "Aston Martin DB9 GT",
+      "description": "Bond Edition 2dr Coupe (5.9L 12cyl 6A)",
+      "values": {
+        "price": 235307,
+        "engineSize": 5.9,
+        "power": 540,
+        "MPGCombined": 16,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401632440,
+      "name": "Aston Martin Rapide S",
+      "description": "4dr Sedan (5.9L 12cyl 8A)",
+      "values": {
+        "price": 206000,
+        "engineSize": 5.9,
+        "power": 552,
+        "MPGCombined": 18,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401633360,
+      "name": "Aston Martin V12 Vantage S",
+      "description": "Roadster 2dr Convertible (5.9L 12cyl 7AM)",
+      "values": {
+        "price": 198195,
+        "engineSize": 5.9,
+        "power": 565,
+        "MPGCombined": 15,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401627343,
+      "name": "Aston Martin V8 Vantage",
+      "description": "GT Roadster 2dr Convertible (4.7L 8cyl 6M)",
+      "values": {
+        "price": 117800,
+        "engineSize": 4.7,
+        "power": 430,
+        "MPGCombined": 16,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401631549,
+      "name": "Aston Martin Vanquish",
+      "description": "Carbon Volante 2dr Convertible (5.9L 12cyl 8A)",
+      "values": {
+        "price": 320695,
+        "engineSize": 5.9,
+        "power": 568,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200736144,
+      "name": "Audi A3",
+      "description": "1.8 TFSI Premium 2dr Convertible (1.8L 4cyl Turbo 6AM)",
+      "values": {
+        "price": 36600,
+        "engineSize": 1.8,
+        "power": 170,
+        "MPGCombined": 29,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200748641,
+      "name": "Audi A3 Sportback e-tron",
+      "description": "1.4 TFSI PHEV Premium 4dr Hatchback (1.4L 4cyl gas/electric hybrid Turbo 6AM)",
+      "values": {
+        "price": 37900,
+        "engineSize": 1.4,
+        "power": 204,
+        "MPGCombined": null,
+        "averageRating": 3.333,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200736356,
+      "name": "Audi A4",
+      "description": "2.0T Premium quattro 4dr Sedan AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 38000,
+        "engineSize": 2,
+        "power": 220,
+        "MPGCombined": 26,
+        "averageRating": 3.333,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200736693,
+      "name": "Audi A5",
+      "description": "2.0T Premium Plus quattro 2dr Coupe AWD (2.0L 4cyl Turbo 6M)",
+      "values": {
+        "price": 42800,
+        "engineSize": 2,
+        "power": 220,
+        "MPGCombined": 27,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200725318,
+      "name": "Audi A6",
+      "description": "2.0T Premium Plus 4dr Sedan (2.0L 4cyl Turbo 7AM)",
+      "values": {
+        "price": 49900,
+        "engineSize": 2,
+        "power": 252,
+        "MPGCombined": 29,
+        "averageRating": 5,
+        "reviewsCount": 7
+      }
+    },
+    {
+      "key": 200726011,
+      "name": "Audi A7",
+      "description": "TDI Premium Plus quattro 4dr Sedan AWD (3.0L 6cyl Turbodiesel 8A)",
+      "values": {
+        "price": 70400,
+        "engineSize": 3,
+        "power": 240,
+        "MPGCombined": 31,
+        "averageRating": 5,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200737511,
+      "name": "Audi A8",
+      "description": "L TDI quattro 4dr Sedan AWD (3.0L 6cyl Turbodiesel 8A)",
+      "values": {
+        "price": 85200,
+        "engineSize": 3,
+        "power": 240,
+        "MPGCombined": 29,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200736343,
+      "name": "Audi Q3",
+      "description": "Premium Plus quattro 4dr SUV AWD (2.0L 4cyl Turbo 6A)",
+      "values": {
+        "price": 35800,
+        "engineSize": 2,
+        "power": 200,
+        "MPGCombined": 24,
+        "averageRating": 4.4,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 200737127,
+      "name": "Audi Q5",
+      "description": "2.0T Premium Plus quattro 4dr SUV AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 42750,
+        "engineSize": 2,
+        "power": 220,
+        "MPGCombined": 24,
+        "averageRating": 5,
+        "reviewsCount": 10
+      }
+    },
+    {
+      "key": 200725943,
+      "name": "Audi RS 7",
+      "description": "Prestige quattro 4dr Sedan AWD (4.0L 8cyl Turbo 8A)",
+      "values": {
+        "price": 108900,
+        "engineSize": 4,
+        "power": 560,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200736281,
+      "name": "Audi S3",
+      "description": "2.0T Premium Plus quattro 4dr Sedan AWD (2.0L 4cyl Turbo 6AM)",
+      "values": {
+        "price": 42500,
+        "engineSize": 2,
+        "power": 292,
+        "MPGCombined": 27,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200736445,
+      "name": "Audi S4",
+      "description": "Prestige quattro 4dr Sedan AWD (3.0L 6cyl S/C 7AM)",
+      "values": {
+        "price": 56100,
+        "engineSize": 3,
+        "power": 333,
+        "MPGCombined": 23,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200736810,
+      "name": "Audi S5",
+      "description": "Premium Plus quattro 2dr Coupe AWD (3.0L 6cyl S/C 6M)",
+      "values": {
+        "price": 53100,
+        "engineSize": 3,
+        "power": 333,
+        "MPGCombined": 21,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200725764,
+      "name": "Audi S6",
+      "description": "Premium Plus quattro 4dr Sedan AWD (4.0L 8cyl Turbo 7AM)",
+      "values": {
+        "price": 70900,
+        "engineSize": 4,
+        "power": 450,
+        "MPGCombined": 22,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200725873,
+      "name": "Audi S7",
+      "description": "quattro 4dr Sedan AWD (4.0L 8cyl Turbo 7AM)",
+      "values": {
+        "price": 82900,
+        "engineSize": 4,
+        "power": 450,
+        "MPGCombined": 22,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200737584,
+      "name": "Audi S8",
+      "description": "quattro 4dr Sedan AWD (4.0L 8cyl Turbo 8A)",
+      "values": {
+        "price": 114900,
+        "engineSize": 4,
+        "power": 520,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200737093,
+      "name": "Audi SQ5",
+      "description": "3.0T Prestige quattro 4dr SUV AWD (3.0L 6cyl S/C 8A)",
+      "values": {
+        "price": 60800,
+        "engineSize": 3,
+        "power": 354,
+        "MPGCombined": 20,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200737738,
+      "name": "Audi TT",
+      "description": "2.0T quattro 2dr Convertible AWD (2.0L 4cyl Turbo 6AM)",
+      "values": {
+        "price": 46400,
+        "engineSize": 2,
+        "power": 220,
+        "MPGCombined": 26,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200737740,
+      "name": "Audi TTS",
+      "description": "quattro 2dr Coupe AWD (2.0L 4cyl Turbo 6AM)",
+      "values": {
+        "price": 51900,
+        "engineSize": 2,
+        "power": 292,
+        "MPGCombined": 25,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200736556,
+      "name": "Audi allroad",
+      "description": "Premium Plus quattro 4dr Wagon AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 44800,
+        "engineSize": 2,
+        "power": 220,
+        "MPGCombined": 24,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200744432,
+      "name": "BMW 2 Series",
+      "description": "M235i xDrive 2dr Coupe AWD (3.0L 6cyl Turbo 8A)",
+      "values": {
+        "price": 46150,
+        "engineSize": 3,
+        "power": 320,
+        "MPGCombined": 25,
+        "averageRating": 4.8,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 200741587,
+      "name": "BMW 3 Series",
+      "description": "340i 4dr Sedan (3.0L 6cyl Turbo 8A)",
+      "values": {
+        "price": 45800,
+        "engineSize": 3,
+        "power": 320,
+        "MPGCombined": 27,
+        "averageRating": 5,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 200747549,
+      "name": "BMW 3 Series Gran Turismo",
+      "description": "335i xDrive 4dr Hatchback AWD (3.0L 6cyl Turbo 8A)",
+      "values": {
+        "price": 49200,
+        "engineSize": 3,
+        "power": 300,
+        "MPGCombined": 25,
+        "averageRating": 4,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200743649,
+      "name": "BMW 4 Series",
+      "description": "428i xDrive SULEV 2dr Convertible AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 52000,
+        "engineSize": 2,
+        "power": 240,
+        "MPGCombined": 26,
+        "averageRating": 5,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200737899,
+      "name": "BMW 4 Series Gran Coupe",
+      "description": "428i xDrive SULEV 4dr Sedan AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 43650,
+        "engineSize": 2,
+        "power": 240,
+        "MPGCombined": 27,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200745716,
+      "name": "BMW 5 Series",
+      "description": "528i xDrive 4dr Sedan AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 52500,
+        "engineSize": 2,
+        "power": 240,
+        "MPGCombined": 27,
+        "averageRating": 4.5,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 200744771,
+      "name": "BMW 5 Series Gran Turismo",
+      "description": "550i xDrive 4dr Hatchback AWD (4.4L 8cyl Turbo 8A)",
+      "values": {
+        "price": 72500,
+        "engineSize": 4.4,
+        "power": 445,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200732869,
+      "name": "BMW 6 Series",
+      "description": "640i 2dr Convertible (3.0L 6cyl Turbo 8A)",
+      "values": {
+        "price": 84800,
+        "engineSize": 3,
+        "power": 315,
+        "MPGCombined": 25,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200734522,
+      "name": "BMW 6 Series Gran Coupe",
+      "description": "640i xDrive 4dr Sedan AWD (3.0L 6cyl Turbo 8A)",
+      "values": {
+        "price": 82500,
+        "engineSize": 3,
+        "power": 315,
+        "MPGCombined": 24,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401580728,
+      "name": "BMW 7 Series",
+      "description": "750i 4dr Sedan (4.4L 8cyl Turbo 8A)",
+      "values": {
+        "price": 94400,
+        "engineSize": 4.4,
+        "power": 445,
+        "MPGCombined": 21,
+        "averageRating": 4,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200735195,
+      "name": "BMW ALPINA B6 Gran Coupe",
+      "description": "xDrive 4dr Sedan AWD (4.4L 8cyl Turbo 8A)",
+      "values": {
+        "price": 122200,
+        "engineSize": 4.4,
+        "power": 600,
+        "MPGCombined": 19,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401588569,
+      "name": "BMW ActiveHybrid 5",
+      "description": "4dr Sedan (3.0L 6cyl Turbo gas/electric hybrid 8A)",
+      "values": {
+        "price": 62100,
+        "engineSize": 3,
+        "power": 335,
+        "MPGCombined": 26,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401632231,
+      "name": "BMW M2",
+      "description": "2dr Coupe (3.0L 6cyl Turbo 6M)",
+      "values": {
+        "price": 51700,
+        "engineSize": 3,
+        "power": 365,
+        "MPGCombined": 22,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401566521,
+      "name": "BMW M3",
+      "description": "4dr Sedan (3.0L 6cyl Turbo 6M)",
+      "values": {
+        "price": 63500,
+        "engineSize": 3,
+        "power": 425,
+        "MPGCombined": 21,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200748862,
+      "name": "BMW M4",
+      "description": "2dr Coupe (3.0L 6cyl Turbo 6M)",
+      "values": {
+        "price": 65700,
+        "engineSize": 3,
+        "power": 425,
+        "MPGCombined": 21,
+        "averageRating": 4,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200749891,
+      "name": "BMW M5",
+      "description": "4dr Sedan (4.4L 8cyl Turbo 7AM)",
+      "values": {
+        "price": 94100,
+        "engineSize": 4.4,
+        "power": 560,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200731125,
+      "name": "BMW M6",
+      "description": "2dr Coupe (4.4L 8cyl Turbo 7AM)",
+      "values": {
+        "price": 113400,
+        "engineSize": 4.4,
+        "power": 552,
+        "MPGCombined": 17,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200731328,
+      "name": "BMW M6 Gran Coupe",
+      "description": "4dr Sedan (4.4L 8cyl Turbo 7AM)",
+      "values": {
+        "price": 117200,
+        "engineSize": 4.4,
+        "power": 552,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200737086,
+      "name": "BMW X1",
+      "description": "xDrive28i 4dr SUV AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 34800,
+        "engineSize": 2,
+        "power": 228,
+        "MPGCombined": 27,
+        "averageRating": 4.5,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 200734019,
+      "name": "BMW X3",
+      "description": "xDrive28i 4dr SUV AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 40950,
+        "engineSize": 2,
+        "power": 240,
+        "MPGCombined": 24,
+        "averageRating": 4.375,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 401627496,
+      "name": "BMW X4",
+      "description": "M40i 4dr SUV AWD (3.0L 6cyl Turbo 8A)",
+      "values": {
+        "price": 57800,
+        "engineSize": 3,
+        "power": 360,
+        "MPGCombined": 21,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200746491,
+      "name": "BMW X5",
+      "description": "xDrive50i 4dr SUV AWD (4.4L 8cyl Turbo 8A)",
+      "values": {
+        "price": 71500,
+        "engineSize": 4.4,
+        "power": 445,
+        "MPGCombined": 18,
+        "averageRating": 4.875,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 401589057,
+      "name": "BMW X5 M",
+      "description": "4dr SUV AWD (4.4L 8cyl Turbo 8A)",
+      "values": {
+        "price": 98800,
+        "engineSize": 4.4,
+        "power": 567,
+        "MPGCombined": 16,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401583390,
+      "name": "BMW X5 eDrive",
+      "description": "xDrive40e 4dr SUV AWD (2.0L 4cyl Turbo gas/electric hybrid 8A)",
+      "values": {
+        "price": 62100,
+        "engineSize": 2,
+        "power": 240,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200766538,
+      "name": "BMW X6",
+      "description": "sDrive35i 4dr SUV (3.0L 6cyl Turbo 8A)",
+      "values": {
+        "price": 60600,
+        "engineSize": 3,
+        "power": 300,
+        "MPGCombined": 21,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200777976,
+      "name": "BMW X6 M",
+      "description": "4dr SUV AWD (4.4L 8cyl Turbo 8A)",
+      "values": {
+        "price": 102200,
+        "engineSize": 4.4,
+        "power": 567,
+        "MPGCombined": 16,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200733836,
+      "name": "BMW Z4",
+      "description": "sDrive35i 2dr Convertible (3.0L 6cyl Turbo 7AM)",
+      "values": {
+        "price": 57500,
+        "engineSize": 3,
+        "power": 300,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401612496,
+      "name": "BMW i3",
+      "description": "4dr Hatchback w/Range Extender (electric DD)",
+      "values": {
+        "price": 46250,
+        "power": 170,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401613127,
+      "name": "BMW i8",
+      "description": "2dr Coupe AWD (1.5L 3cyl Turbo gas/electric hybrid 6A)",
+      "values": {
+        "price": 140700,
+        "engineSize": 1.5,
+        "power": 357,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401613794,
+      "name": "Buick Cascada",
+      "description": "Premium 2dr Convertible (1.6L 4cyl Turbo 6A)",
+      "values": {
+        "price": 36065,
+        "engineSize": 1.6,
+        "power": 200,
+        "MPGCombined": 23,
+        "averageRating": 4.25,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 200740596,
+      "name": "Buick Enclave",
+      "description": "Convenience Group 4dr SUV (3.6L 6cyl 6A)",
+      "values": {
+        "price": 39065,
+        "engineSize": 3.6,
+        "power": 288,
+        "MPGCombined": 20,
+        "averageRating": 4,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401583528,
+      "name": "Buick Encore",
+      "description": "4dr SUV (1.4L 4cyl Turbo 6A)",
+      "values": {
+        "price": 24065,
+        "engineSize": 1.4,
+        "power": 138,
+        "MPGCombined": 29,
+        "averageRating": 3,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 200746719,
+      "name": "Buick LaCrosse",
+      "description": "4dr Sedan (3.6L 6cyl 6A)",
+      "values": {
+        "price": 33810,
+        "engineSize": 3.6,
+        "power": 304,
+        "MPGCombined": 23,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200751764,
+      "name": "Buick Regal",
+      "description": "1SV 4dr Sedan (2.4L 4cyl 6A)",
+      "values": {
+        "price": 27065,
+        "engineSize": 2.4,
+        "power": 182,
+        "MPGCombined": 24,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200747589,
+      "name": "Buick Verano",
+      "description": "Premium Turbo Group 4dr Sedan (2.0L 4cyl Turbo 6A)",
+      "values": {
+        "price": 28670,
+        "engineSize": 2,
+        "power": 250,
+        "MPGCombined": 25,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401580756,
+      "name": "Cadillac ATS",
+      "description": "Premium 4dr Sedan AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 47210,
+        "engineSize": 2,
+        "power": 272,
+        "MPGCombined": 26,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401581032,
+      "name": "Cadillac ATS Coupe",
+      "description": "Premium 2dr Coupe (3.6L 6cyl 8A)",
+      "values": {
+        "price": 50835,
+        "engineSize": 3.6,
+        "power": 335,
+        "MPGCombined": 25,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200468528,
+      "name": "Cadillac ATS-V",
+      "description": "4dr Sedan (3.6L 6cyl Turbo 6M)",
+      "values": {
+        "price": 60465,
+        "engineSize": 3.6,
+        "power": 464,
+        "MPGCombined": 20,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401614376,
+      "name": "Cadillac CT6",
+      "description": "4dr Sedan AWD (3.6L 6cyl 8A)",
+      "values": {
+        "price": 55495,
+        "engineSize": 3.6,
+        "power": 335,
+        "MPGCombined": 22,
+        "averageRating": 3,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401578250,
+      "name": "Cadillac CTS",
+      "description": "Standard 4dr Sedan AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 47560,
+        "engineSize": 2,
+        "power": 268,
+        "MPGCombined": 25,
+        "averageRating": 4,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200688940,
+      "name": "Cadillac CTS-V",
+      "description": "4dr Sedan (6.2L 8cyl S/C 8A)",
+      "values": {
+        "price": 83995,
+        "engineSize": 6.2,
+        "power": 640,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200714823,
+      "name": "Cadillac ELR",
+      "description": "2dr Coupe (gas/electric hybrid DD)",
+      "values": {
+        "price": 65000,
+        "power": 233,
+        "MPGCombined": null,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401575661,
+      "name": "Cadillac Escalade",
+      "description": "Luxury 4dr SUV 4WD (6.2L 8cyl 8A)",
+      "values": {
+        "price": 79645,
+        "engineSize": 6.2,
+        "power": 420,
+        "MPGCombined": 18,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401575668,
+      "name": "Cadillac Escalade ESV",
+      "description": "Luxury 4dr SUV (6.2L 8cyl 8A)",
+      "values": {
+        "price": 80045,
+        "engineSize": 6.2,
+        "power": 420,
+        "MPGCombined": 18,
+        "averageRating": 3.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200744030,
+      "name": "Cadillac SRX",
+      "description": "Premium 4dr SUV (3.6L 6cyl 6A)",
+      "values": {
+        "price": 48920,
+        "engineSize": 3.6,
+        "power": 308,
+        "MPGCombined": 20,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401566635,
+      "name": "Cadillac XTS",
+      "description": "Platinum 4dr Sedan (3.6L 6cyl 6A)",
+      "values": {
+        "price": 64550,
+        "engineSize": 3.6,
+        "power": 304,
+        "MPGCombined": 23,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401582628,
+      "name": "Chevrolet Camaro",
+      "description": "SS w/1SS 2dr Coupe (6.2L 8cyl 6M)",
+      "values": {
+        "price": 36300,
+        "engineSize": 6.2,
+        "power": 455,
+        "MPGCombined": 20,
+        "averageRating": 4.25,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401631651,
+      "name": "Chevrolet City Express",
+      "description": "LS 4dr Minivan (2.0L 4cyl CVT)",
+      "values": {
+        "price": 21955,
+        "engineSize": 2,
+        "power": 131,
+        "MPGCombined": 25,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401575481,
+      "name": "Chevrolet Colorado",
+      "description": "Work Truck 4dr Crew Cab 4WD LB (3.6L 6cyl 6A)",
+      "values": {
+        "price": 30305,
+        "engineSize": 3.6,
+        "power": 305,
+        "MPGCombined": 20,
+        "averageRating": 4.118,
+        "reviewsCount": 17
+      }
+    },
+    {
+      "key": 200744626,
+      "name": "Chevrolet Corvette",
+      "description": "Z06 w/2LZ 2dr Coupe (6.2L 8cyl S/C 7M)",
+      "values": {
+        "price": 82965,
+        "engineSize": 6.2,
+        "power": 650,
+        "MPGCombined": 18,
+        "averageRating": 5,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401627067,
+      "name": "Chevrolet Cruze",
+      "description": "L 4dr Sedan (1.4L 4cyl 6M)",
+      "values": {
+        "price": 16620,
+        "engineSize": 1.4,
+        "power": 153,
+        "MPGCombined": 34,
+        "averageRating": 3.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200745928,
+      "name": "Chevrolet Cruze Limited",
+      "description": "Eco 4dr Sedan (1.4L 4cyl Turbo 6M)",
+      "values": {
+        "price": 20195,
+        "engineSize": 1.4,
+        "power": 138,
+        "MPGCombined": 34,
+        "averageRating": 4,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200724435,
+      "name": "Chevrolet Equinox",
+      "description": "L 4dr SUV (2.4L 4cyl 6A)",
+      "values": {
+        "price": 22600,
+        "engineSize": 2.4,
+        "power": 182,
+        "MPGCombined": 27,
+        "averageRating": 4.364,
+        "reviewsCount": 11
+      }
+    },
+    {
+      "key": 401626098,
+      "name": "Chevrolet Express",
+      "description": "LS 3500 3dr Van (4.8L 8cyl 6A)",
+      "values": {
+        "price": 35285,
+        "engineSize": 4.8,
+        "power": 285,
+        "MPGCombined": 13,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401630651,
+      "name": "Chevrolet Express Cargo",
+      "description": "3500 3dr Ext Van (4.8L 8cyl 6A)",
+      "values": {
+        "price": 34800,
+        "engineSize": 4.8,
+        "power": 285,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200779611,
+      "name": "Chevrolet Impala",
+      "description": "LT CNG w/3LT 4dr Sedan (3.6L 6cyl 6A)",
+      "values": {
+        "price": 40810,
+        "engineSize": 3.6,
+        "power": null,
+        "MPGCombined": 21,
+        "averageRating": 3.25,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401582193,
+      "name": "Chevrolet Malibu",
+      "description": "LT w/2LT 4dr Sedan (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 28620,
+        "engineSize": 2,
+        "power": 250,
+        "MPGCombined": 27,
+        "averageRating": 4.286,
+        "reviewsCount": 7
+      }
+    },
+    {
+      "key": 200747327,
+      "name": "Chevrolet Malibu Limited",
+      "description": "LTZ 4dr Sedan (2.5L 4cyl 6A)",
+      "values": {
+        "price": 28420,
+        "engineSize": 2.5,
+        "power": 197,
+        "MPGCombined": 29,
+        "averageRating": 4.6,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 401614831,
+      "name": "Chevrolet SS",
+      "description": "4dr Sedan (6.2L 8cyl 6A)",
+      "values": {
+        "price": 46575,
+        "engineSize": 6.2,
+        "power": 415,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401582166,
+      "name": "Chevrolet Silverado 1500",
+      "description": "LS 4dr Crew Cab 6.5 ft. SB (5.3L 8cyl 6A)",
+      "values": {
+        "price": 38300,
+        "engineSize": 5.3,
+        "power": 355,
+        "MPGCombined": 19,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401597708,
+      "name": "Chevrolet Silverado 2500HD",
+      "description": "Work Truck 4dr Crew Cab LB (6.0L 8cyl 6A)",
+      "values": {
+        "price": 36935,
+        "engineSize": 6,
+        "power": 360,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401612170,
+      "name": "Chevrolet Silverado 3500HD",
+      "description": "Work Truck 4dr Crew Cab LB (6.0L 8cyl 6A)",
+      "values": {
+        "price": 38810,
+        "engineSize": 6,
+        "power": 360,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401566582,
+      "name": "Chevrolet Sonic",
+      "description": "LT 4dr Hatchback (1.8L 4cyl 5M)",
+      "values": {
+        "price": 16755,
+        "engineSize": 1.8,
+        "power": 138,
+        "MPGCombined": 30,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401614783,
+      "name": "Chevrolet Spark",
+      "description": "LS 4dr Hatchback (1.4L 4cyl CVT)",
+      "values": {
+        "price": 13760,
+        "engineSize": 1.4,
+        "power": 98,
+        "MPGCombined": 36,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401625838,
+      "name": "Chevrolet Spark EV",
+      "description": "2LT 4dr Hatchback (electric DD)",
+      "values": {
+        "price": 25510,
+        "power": 140,
+        "MPGCombined": 119,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200749049,
+      "name": "Chevrolet Suburban",
+      "description": "LT 4dr SUV 4WD (5.3L 8cyl 6A)",
+      "values": {
+        "price": 57730,
+        "engineSize": 5.3,
+        "power": 355,
+        "MPGCombined": 18,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200749044,
+      "name": "Chevrolet Tahoe",
+      "description": "LS 4dr SUV (5.3L 8cyl 6A)",
+      "values": {
+        "price": 47000,
+        "engineSize": 5.3,
+        "power": 355,
+        "MPGCombined": 19,
+        "averageRating": 4,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200738916,
+      "name": "Chevrolet Traverse",
+      "description": "LS 4dr SUV AWD (3.6L 6cyl 6A)",
+      "values": {
+        "price": 33205,
+        "engineSize": 3.6,
+        "power": 281,
+        "MPGCombined": 19,
+        "averageRating": 4,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 200779840,
+      "name": "Chevrolet Trax",
+      "description": "LTZ 4dr SUV AWD (1.4L 4cyl Turbo 6A)",
+      "values": {
+        "price": 26730,
+        "engineSize": 1.4,
+        "power": 138,
+        "MPGCombined": 27,
+        "averageRating": 4.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200707599,
+      "name": "Chevrolet Volt",
+      "description": "LT 4dr Hatchback (gas/electric hybrid DD)",
+      "values": {
+        "price": 33170,
+        "power": 149,
+        "MPGCombined": null,
+        "averageRating": 3.833,
+        "reviewsCount": 18
+      }
+    },
+    {
+      "key": 401630236,
+      "name": "Chrysler 200",
+      "description": "Touring 4dr Sedan (2.4L 4cyl 9A)",
+      "values": {
+        "price": 22490,
+        "engineSize": 2.4,
+        "power": 184,
+        "MPGCombined": 29,
+        "averageRating": 3.4,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 200751784,
+      "name": "Chrysler 300",
+      "description": "C Platinum 4dr Sedan (3.6L 6cyl 8A)",
+      "values": {
+        "price": 42565,
+        "engineSize": 3.6,
+        "power": 292,
+        "MPGCombined": 24,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200740454,
+      "name": "Chrysler Town and Country",
+      "description": "Touring-L 4dr Minivan (3.6L 6cyl 6A)",
+      "values": {
+        "price": 35845,
+        "engineSize": 3.6,
+        "power": 283,
+        "MPGCombined": 21,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200782270,
+      "name": "Dodge Challenger",
+      "description": "SRT 392 2dr Coupe (6.4L 8cyl 6M)",
+      "values": {
+        "price": 49195,
+        "engineSize": 6.4,
+        "power": 485,
+        "MPGCombined": 18,
+        "averageRating": 5,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 200751381,
+      "name": "Dodge Charger",
+      "description": "SRT Hellcat 4dr Sedan (6.2L 8cyl S/C 8A)",
+      "values": {
+        "price": 65945,
+        "engineSize": 6.2,
+        "power": 707,
+        "MPGCombined": 17,
+        "averageRating": 4,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 200738448,
+      "name": "Dodge Dart",
+      "description": "SXT 4dr Sedan (2.4L 4cyl 6M)",
+      "values": {
+        "price": 19395,
+        "engineSize": 2.4,
+        "power": 184,
+        "MPGCombined": 28,
+        "averageRating": 4,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401630681,
+      "name": "Dodge Durango",
+      "description": "Anodized Platinum 4dr SUV AWD (3.6L 6cyl 8A)",
+      "values": {
+        "price": 44990,
+        "engineSize": 3.6,
+        "power": 295,
+        "MPGCombined": 21,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200741067,
+      "name": "Dodge Grand Caravan",
+      "description": "SE 4dr Minivan (3.6L 6cyl 6A)",
+      "values": {
+        "price": 24595,
+        "engineSize": 3.6,
+        "power": 283,
+        "MPGCombined": 21,
+        "averageRating": 3,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 200741373,
+      "name": "Dodge Journey",
+      "description": "SXT 4dr SUV (2.4L 4cyl 4A)",
+      "values": {
+        "price": 24895,
+        "engineSize": 2.4,
+        "power": 173,
+        "MPGCombined": 22,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200734699,
+      "name": "Dodge Viper",
+      "description": "GTS 2dr Coupe (8.4L 10cyl 6M)",
+      "values": {
+        "price": 107995,
+        "engineSize": 8.4,
+        "power": 645,
+        "MPGCombined": 16,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401572435,
+      "name": "FIAT 500",
+      "description": "Turbo 2dr Hatchback (1.4L 4cyl Turbo 5M)",
+      "values": {
+        "price": 19700,
+        "engineSize": 1.4,
+        "power": 135,
+        "MPGCombined": 31,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401573963,
+      "name": "FIAT 500L",
+      "description": "Pop 4dr Wagon (1.4L 4cyl Turbo 6M)",
+      "values": {
+        "price": 19495,
+        "engineSize": 1.4,
+        "power": 160,
+        "MPGCombined": 29,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200732658,
+      "name": "FIAT 500X",
+      "description": "Trekking Plus 4dr SUV AWD (2.4L 4cyl 9A)",
+      "values": {
+        "price": 29110,
+        "engineSize": 2.4,
+        "power": 180,
+        "MPGCombined": 25,
+        "averageRating": 3,
+        "reviewsCount": 13
+      }
+    },
+    {
+      "key": 401566602,
+      "name": "FIAT 500e",
+      "description": "2dr Hatchback (electric DD)",
+      "values": {
+        "price": 31800,
+        "power": null,
+        "MPGCombined": 116,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200741404,
+      "name": "Ford C-Max Energi",
+      "description": "SEL 4dr Wagon (2.0L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 31770,
+        "engineSize": 2,
+        "power": 188,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200742271,
+      "name": "Ford C-Max Hybrid",
+      "description": "SEL 4dr Wagon (2.0L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 27170,
+        "engineSize": 2,
+        "power": 188,
+        "MPGCombined": 40,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401589395,
+      "name": "Ford Edge",
+      "description": "SE 4dr SUV AWD (2.0L 4cyl Turbo 6A)",
+      "values": {
+        "price": 30695,
+        "engineSize": 2,
+        "power": 245,
+        "MPGCombined": 24,
+        "averageRating": 4.667,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200733446,
+      "name": "Ford Escape",
+      "description": "SE 4dr SUV (1.6L 4cyl Turbo 6A)",
+      "values": {
+        "price": 25790,
+        "engineSize": 1.6,
+        "power": 178,
+        "MPGCombined": 27,
+        "averageRating": 4.091,
+        "reviewsCount": 22
+      }
+    },
+    {
+      "key": 200734918,
+      "name": "Ford Expedition",
+      "description": "Limited 4dr SUV (3.5L 6cyl Turbo 6A)",
+      "values": {
+        "price": 55145,
+        "engineSize": 3.5,
+        "power": 365,
+        "MPGCombined": 19,
+        "averageRating": 4,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200693543,
+      "name": "Ford Explorer",
+      "description": "4dr SUV (3.5L 6cyl 6A)",
+      "values": {
+        "price": 31050,
+        "engineSize": 3.5,
+        "power": 290,
+        "MPGCombined": 20,
+        "averageRating": 3.909,
+        "reviewsCount": 33
+      }
+    },
+    {
+      "key": 401582349,
+      "name": "Ford F-150",
+      "description": "XLT 2dr Regular Cab 6.5 ft. SB (3.5L 6cyl 6A)",
+      "values": {
+        "price": 31790,
+        "engineSize": 3.5,
+        "power": 282,
+        "MPGCombined": 21,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200730160,
+      "name": "Ford F-250 Super Duty",
+      "description": "Lariat 4dr Crew Cab 4WD SB (6.2L 8cyl 6A)",
+      "values": {
+        "price": 50380,
+        "engineSize": 6.2,
+        "power": 385,
+        "MPGCombined": null,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200730319,
+      "name": "Ford F-350 Super Duty",
+      "description": "Platinum 4dr Crew Cab LB DRW (6.2L 8cyl 6A)",
+      "values": {
+        "price": 56150,
+        "engineSize": 6.2,
+        "power": 316,
+        "MPGCombined": null,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200730708,
+      "name": "Ford F-450 Super Duty",
+      "description": "Platinum 4dr Crew Cab Pickup 4WD (6.7L 8cyl Turbodiesel 6A)",
+      "values": {
+        "price": 71320,
+        "engineSize": 6.7,
+        "power": 440,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200733230,
+      "name": "Ford Fiesta",
+      "description": "SE 4dr Hatchback (1.6L 4cyl 5M)",
+      "values": {
+        "price": 16110,
+        "engineSize": 1.6,
+        "power": 120,
+        "MPGCombined": 32,
+        "averageRating": 3.25,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401593865,
+      "name": "Ford Flex",
+      "description": "Limited 4dr Wagon AWD (3.5L 6cyl 6A)",
+      "values": {
+        "price": 39750,
+        "engineSize": 3.5,
+        "power": 287,
+        "MPGCombined": 19,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200740247,
+      "name": "Ford Focus",
+      "description": "S 4dr Sedan (2.0L 4cyl 5M)",
+      "values": {
+        "price": 17225,
+        "engineSize": 2,
+        "power": 160,
+        "MPGCombined": 31,
+        "averageRating": 4.5,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401590247,
+      "name": "Ford Focus RS",
+      "description": "4dr Hatchback w/EcoBoost AWD (2.3L 4cyl Turbo 6M)",
+      "values": {
+        "price": 35730,
+        "engineSize": 2.3,
+        "power": 350,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200740487,
+      "name": "Ford Focus ST",
+      "description": "4dr Hatchback w/EcoBoost (2.0L 4cyl Turbo 6M)",
+      "values": {
+        "price": 24425,
+        "engineSize": 2,
+        "power": 252,
+        "MPGCombined": 27,
+        "averageRating": 5,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 200727089,
+      "name": "Ford Fusion",
+      "description": "Titanium 4dr Sedan AWD w/EcoBoost (2.0L 4cyl Turbo 6A)",
+      "values": {
+        "price": 33270,
+        "engineSize": 2,
+        "power": 231,
+        "MPGCombined": 26,
+        "averageRating": 4.714,
+        "reviewsCount": 21
+      }
+    },
+    {
+      "key": 200728169,
+      "name": "Ford Fusion Energi",
+      "description": "Titanium 4dr Sedan (2.0L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 35730,
+        "engineSize": 2,
+        "power": 188,
+        "MPGCombined": null,
+        "averageRating": 4.667,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 200727951,
+      "name": "Ford Fusion Hybrid",
+      "description": "Titanium 4dr Sedan (2.0L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 31430,
+        "engineSize": 2,
+        "power": 188,
+        "MPGCombined": 43,
+        "averageRating": 4.521,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 200734943,
+      "name": "Ford Mustang",
+      "description": "V6 2dr Convertible (3.7L 6cyl 6M)",
+      "values": {
+        "price": 29645,
+        "engineSize": 3.7,
+        "power": 300,
+        "MPGCombined": 22,
+        "averageRating": 4.375,
+        "reviewsCount": 16
+      }
+    },
+    {
+      "key": 200737642,
+      "name": "Ford Shelby GT350",
+      "description": "R 2dr Coupe (5.2L 8cyl 6M)",
+      "values": {
+        "price": 61295,
+        "engineSize": 5.2,
+        "power": 526,
+        "MPGCombined": 17,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401594157,
+      "name": "Ford Taurus",
+      "description": "Limited 4dr Sedan AWD (3.5L 6cyl 6A)",
+      "values": {
+        "price": 36310,
+        "engineSize": 3.5,
+        "power": 288,
+        "MPGCombined": 22,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200732443,
+      "name": "Ford Transit Connect",
+      "description": "Cargo Van XL SWB 4dr Minivan w/Rear 180 Degree Door (2.5L 4cyl 6A)",
+      "values": {
+        "price": 22675,
+        "engineSize": 2.5,
+        "power": 169,
+        "MPGCombined": 25,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200735525,
+      "name": "Ford Transit Van",
+      "description": "350 High Roof 4dr Cargo Van w/Extended Length, Dual Sliding Doors (3.7L 6cyl 6A)",
+      "values": {
+        "price": 39290,
+        "engineSize": 3.7,
+        "power": 275,
+        "MPGCombined": null,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200735553,
+      "name": "Ford Transit Wagon",
+      "description": "150 XLT Low Roof w/60/40 Passenger Side Door Passenger Van (3.7L 6cyl 6A)",
+      "values": {
+        "price": 34470,
+        "engineSize": 3.7,
+        "power": 275,
+        "MPGCombined": 16,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200741277,
+      "name": "GMC Acadia",
+      "description": "SLE-2 4dr SUV AWD (3.6L 6cyl 6A)",
+      "values": {
+        "price": 38755,
+        "engineSize": 3.6,
+        "power": 281,
+        "MPGCombined": 19,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401575446,
+      "name": "GMC Canyon",
+      "description": "SL 4dr Extended Cab SB (2.5L 4cyl 6M)",
+      "values": {
+        "price": 20955,
+        "engineSize": 2.5,
+        "power": 200,
+        "MPGCombined": 22,
+        "averageRating": 4.667,
+        "reviewsCount": 9
+      }
+    },
+    {
+      "key": 401625997,
+      "name": "GMC Savana",
+      "description": "LS 3500 3dr Ext Van (6.6L 8cyl Turbodiesel 6A)",
+      "values": {
+        "price": 50095,
+        "engineSize": 6.6,
+        "power": 260,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401626239,
+      "name": "GMC Savana Cargo",
+      "description": "3500 3dr Van (4.8L 8cyl 6A)",
+      "values": {
+        "price": 33915,
+        "engineSize": 4.8,
+        "power": 285,
+        "MPGCombined": 13,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401589674,
+      "name": "GMC Sierra 1500",
+      "description": "SLE 4dr Crew Cab 4WD 6.5 ft. SB (5.3L 8cyl 6A)",
+      "values": {
+        "price": 44405,
+        "engineSize": 5.3,
+        "power": 355,
+        "MPGCombined": 19,
+        "averageRating": 3,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401630212,
+      "name": "GMC Sierra 2500HD",
+      "description": "SLT 4dr Double Cab 4WD LB (6.0L 8cyl 6A)",
+      "values": {
+        "price": 49595,
+        "engineSize": 6,
+        "power": 360,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401613807,
+      "name": "GMC Sierra 3500HD",
+      "description": "2dr Regular Cab LB DRW (6.0L 8cyl 6A)",
+      "values": {
+        "price": 35415,
+        "engineSize": 6,
+        "power": 360,
+        "MPGCombined": null,
+        "averageRating": 1,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200746365,
+      "name": "GMC Terrain",
+      "description": "SL 4dr SUV (2.4L 4cyl 6A)",
+      "values": {
+        "price": 23975,
+        "engineSize": 2.4,
+        "power": 182,
+        "MPGCombined": 27,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200779867,
+      "name": "GMC Yukon",
+      "description": "Denali 4dr SUV (6.2L 8cyl 8A)",
+      "values": {
+        "price": 65045,
+        "engineSize": 6.2,
+        "power": 420,
+        "MPGCombined": 18,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200779875,
+      "name": "GMC Yukon XL",
+      "description": "Denali 4dr SUV (6.2L 8cyl 8A)",
+      "values": {
+        "price": 67745,
+        "engineSize": 6.2,
+        "power": 420,
+        "MPGCombined": 18,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200759705,
+      "name": "Honda Accord",
+      "description": "Sport 4dr Sedan (2.4L 4cyl 6M)",
+      "values": {
+        "price": 24265,
+        "engineSize": 2.4,
+        "power": 189,
+        "MPGCombined": 28,
+        "averageRating": 4.429,
+        "reviewsCount": 70
+      }
+    },
+    {
+      "key": 401582893,
+      "name": "Honda CR-V",
+      "description": "EX 4dr SUV (2.4L 4cyl CVT)",
+      "values": {
+        "price": 25995,
+        "engineSize": 2.4,
+        "power": 185,
+        "MPGCombined": 29,
+        "averageRating": 4.3,
+        "reviewsCount": 50
+      }
+    },
+    {
+      "key": 401613423,
+      "name": "Honda CR-Z",
+      "description": "LX 2dr Hatchback (1.5L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 20945,
+        "engineSize": 1.5,
+        "power": 130,
+        "MPGCombined": 37,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401633815,
+      "name": "Honda Civic",
+      "description": "EX-L 2dr Coupe (1.5L 4cyl Turbo CVT)",
+      "values": {
+        "price": 23425,
+        "engineSize": 1.5,
+        "power": 174,
+        "MPGCombined": 36,
+        "averageRating": 4.353,
+        "reviewsCount": 17
+      }
+    },
+    {
+      "key": 200742369,
+      "name": "Honda Fit",
+      "description": "EX 4dr Hatchback (1.5L 4cyl CVT)",
+      "values": {
+        "price": 18600,
+        "engineSize": 1.5,
+        "power": 130,
+        "MPGCombined": 35,
+        "averageRating": 4.636,
+        "reviewsCount": 11
+      }
+    },
+    {
+      "key": 200675652,
+      "name": "Honda HR-V",
+      "description": "LX 4dr SUV (1.8L 4cyl 6M)",
+      "values": {
+        "price": 19215,
+        "engineSize": 1.8,
+        "power": 141,
+        "MPGCombined": 29,
+        "averageRating": 4.032,
+        "reviewsCount": 71
+      }
+    },
+    {
+      "key": 200751258,
+      "name": "Honda Odyssey",
+      "description": "Touring Elite 4dr Minivan (3.5L 6cyl 6A)",
+      "values": {
+        "price": 44875,
+        "engineSize": 3.5,
+        "power": 248,
+        "MPGCombined": 23,
+        "averageRating": 4.3,
+        "reviewsCount": 20
+      }
+    },
+    {
+      "key": 200738534,
+      "name": "Honda Pilot",
+      "description": "Touring w/Navigation and Rear Entertainment System 4dr SUV AWD (3.5L 6cyl 9A)",
+      "values": {
+        "price": 42970,
+        "engineSize": 3.5,
+        "power": 280,
+        "MPGCombined": 22,
+        "averageRating": 3.681,
+        "reviewsCount": 138
+      }
+    },
+    {
+      "key": 200759753,
+      "name": "Hyundai Accent",
+      "description": "SE 4dr Sedan (1.6L 4cyl 6M)",
+      "values": {
+        "price": 14745,
+        "engineSize": 1.6,
+        "power": 137,
+        "MPGCombined": 32,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401590269,
+      "name": "Hyundai Azera",
+      "description": "4dr Sedan (3.3L 6cyl 6A)",
+      "values": {
+        "price": 34100,
+        "engineSize": 3.3,
+        "power": 293,
+        "MPGCombined": 24,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200731190,
+      "name": "Hyundai Elantra",
+      "description": "Limited PZEV 4dr Sedan (1.8L 4cyl 6A)",
+      "values": {
+        "price": 21700,
+        "engineSize": 1.8,
+        "power": 145,
+        "MPGCombined": 32,
+        "averageRating": 4.52,
+        "reviewsCount": 25
+      }
+    },
+    {
+      "key": 200728306,
+      "name": "Hyundai Elantra GT",
+      "description": "4dr Hatchback (2.0L 4cyl 6A)",
+      "values": {
+        "price": 19800,
+        "engineSize": 2,
+        "power": 173,
+        "MPGCombined": 28,
+        "averageRating": 4.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200738133,
+      "name": "Hyundai Equus",
+      "description": "Signature 4dr Sedan (5.0L 8cyl 8A)",
+      "values": {
+        "price": 61500,
+        "engineSize": 5,
+        "power": 429,
+        "MPGCombined": 19,
+        "averageRating": 4.4,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 401593923,
+      "name": "Hyundai Genesis",
+      "description": "5.0 4dr Sedan (5.0L 8cyl 8A)",
+      "values": {
+        "price": 53850,
+        "engineSize": 5,
+        "power": 420,
+        "MPGCombined": 19,
+        "averageRating": 4.75,
+        "reviewsCount": 16
+      }
+    },
+    {
+      "key": 401597978,
+      "name": "Hyundai Genesis Coupe",
+      "description": "3.8 R-Spec 2dr Coupe (3.8L 6cyl 6M)",
+      "values": {
+        "price": 29900,
+        "engineSize": 3.8,
+        "power": 348,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200744834,
+      "name": "Hyundai Santa Fe",
+      "description": "SE 4dr SUV AWD (3.3L 6cyl 6A)",
+      "values": {
+        "price": 32150,
+        "engineSize": 3.3,
+        "power": 290,
+        "MPGCombined": 21,
+        "averageRating": 4.6,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 200736738,
+      "name": "Hyundai Santa Fe Sport",
+      "description": "4dr SUV AWD (2.4L 4cyl 6A)",
+      "values": {
+        "price": 26700,
+        "engineSize": 2.4,
+        "power": 190,
+        "MPGCombined": 22,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401575706,
+      "name": "Hyundai Sonata",
+      "description": "Sport PZEV 4dr Sedan (2.4L 4cyl 6A)",
+      "values": {
+        "price": 23400,
+        "engineSize": 2.4,
+        "power": 185,
+        "MPGCombined": 30,
+        "averageRating": 4.333,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 200741599,
+      "name": "Hyundai Sonata Hybrid",
+      "description": "4dr Sedan (2.0L 4cyl gas/electric hybrid 6A)",
+      "values": {
+        "price": 26000,
+        "engineSize": 2,
+        "power": 193,
+        "MPGCombined": 42,
+        "averageRating": 4.833,
+        "reviewsCount": 12
+      }
+    },
+    {
+      "key": 401597451,
+      "name": "Hyundai Sonata Plug-In Hybrid",
+      "description": "Limited w/Blue Pearl Interior 4dr Sedan (2.0L 4cyl gas/electric hybrid 6A)",
+      "values": {
+        "price": 38600,
+        "engineSize": 2,
+        "power": 202,
+        "MPGCombined": null,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401587363,
+      "name": "Hyundai Tucson",
+      "description": "SE 4dr SUV AWD (2.0L 4cyl 6A)",
+      "values": {
+        "price": 24100,
+        "engineSize": 2,
+        "power": 164,
+        "MPGCombined": 23,
+        "averageRating": 4.152,
+        "reviewsCount": 33
+      }
+    },
+    {
+      "key": 200749830,
+      "name": "Hyundai Veloster",
+      "description": "Turbo R-Spec 3dr Hatchback w/Red Interior (1.6L 4cyl Turbo 6M)",
+      "values": {
+        "price": 21600,
+        "engineSize": 1.6,
+        "power": 201,
+        "MPGCombined": 29,
+        "averageRating": 3.667,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 401632502,
+      "name": "Infiniti Q50",
+      "description": "Hybrid Premium 4dr Sedan AWD (3.5L 6cyl gas/electric hybrid 7A)",
+      "values": {
+        "price": 49050,
+        "engineSize": 3.5,
+        "power": 360,
+        "MPGCombined": 29,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401613050,
+      "name": "Infiniti Q70",
+      "description": "Hybrid 4dr Sedan (3.5L 6cyl gas/electric hybrid 7A)",
+      "values": {
+        "price": 55900,
+        "engineSize": 3.5,
+        "power": 360,
+        "MPGCombined": 31,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401574227,
+      "name": "Infiniti QX50",
+      "description": "4dr SUV AWD (3.7L 6cyl 7A)",
+      "values": {
+        "price": 35850,
+        "engineSize": 3.7,
+        "power": 325,
+        "MPGCombined": 20,
+        "averageRating": 4.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401630507,
+      "name": "Infiniti QX60",
+      "description": "4dr SUV (3.5L 6cyl CVT)",
+      "values": {
+        "price": 42600,
+        "engineSize": 3.5,
+        "power": 265,
+        "MPGCombined": 24,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200736083,
+      "name": "Infiniti QX70",
+      "description": "4dr SUV (3.7L 6cyl 7A)",
+      "values": {
+        "price": 45850,
+        "engineSize": 3.7,
+        "power": 325,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401610861,
+      "name": "Infiniti QX80",
+      "description": "4dr SUV (5.6L 8cyl 7A)",
+      "values": {
+        "price": 63250,
+        "engineSize": 5.6,
+        "power": 400,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401598072,
+      "name": "Jaguar F-TYPE",
+      "description": "Project 7 2dr Convertible (5.0L 8cyl S/C 8A)",
+      "values": {
+        "price": 165000,
+        "engineSize": 5,
+        "power": 575,
+        "MPGCombined": null,
+        "averageRating": 4.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401581213,
+      "name": "Jaguar XF",
+      "description": "35t Prestige 4dr Sedan AWD (3.0L 6cyl S/C 8A)",
+      "values": {
+        "price": 59550,
+        "engineSize": 3,
+        "power": 340,
+        "MPGCombined": 24,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401583355,
+      "name": "Jaguar XJ",
+      "description": "Supercharged 4dr Sedan (5.0L 8cyl S/C 8A)",
+      "values": {
+        "price": 92000,
+        "engineSize": 5,
+        "power": 470,
+        "MPGCombined": 19,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401632265,
+      "name": "Jeep Cherokee",
+      "description": "High Altitude 4dr SUV (2.4L 4cyl 9A)",
+      "values": {
+        "price": 29790,
+        "engineSize": 2.4,
+        "power": 184,
+        "MPGCombined": 26,
+        "averageRating": 4,
+        "reviewsCount": 25
+      }
+    },
+    {
+      "key": 401631573,
+      "name": "Jeep Compass",
+      "description": "75th Anniversary 4dr SUV (2.4L 4cyl 6A)",
+      "values": {
+        "price": 21080,
+        "engineSize": 2.4,
+        "power": 172,
+        "MPGCombined": 24,
+        "averageRating": 3.75,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 401589184,
+      "name": "Jeep Grand Cherokee",
+      "description": "High Altitude 4dr SUV (3.6L 6cyl 8A)",
+      "values": {
+        "price": 46690,
+        "engineSize": 3.6,
+        "power": 290,
+        "MPGCombined": 22,
+        "averageRating": 5,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 401598503,
+      "name": "Jeep Grand Cherokee SRT",
+      "description": "4dr SUV 4WD (6.4L 8cyl 8A)",
+      "values": {
+        "price": 65495,
+        "engineSize": 6.4,
+        "power": 475,
+        "MPGCombined": 16,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401631398,
+      "name": "Jeep Patriot",
+      "description": "75th Anniversary 4dr SUV 4WD (2.4L 4cyl 6A)",
+      "values": {
+        "price": 21025,
+        "engineSize": 2.4,
+        "power": 172,
+        "MPGCombined": 23,
+        "averageRating": 4.909,
+        "reviewsCount": 11
+      }
+    },
+    {
+      "key": 401566830,
+      "name": "Jeep Renegade",
+      "description": "Sport 4dr SUV (1.4L 4cyl Turbo 6M)",
+      "values": {
+        "price": 17995,
+        "engineSize": 1.4,
+        "power": 160,
+        "MPGCombined": 27,
+        "averageRating": 4.125,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 401627051,
+      "name": "Jeep Wrangler",
+      "description": "75th Anniversary 2dr SUV 4WD (3.6L 6cyl 6M)",
+      "values": {
+        "price": 34575,
+        "engineSize": 3.6,
+        "power": 285,
+        "MPGCombined": 19,
+        "averageRating": 4.588,
+        "reviewsCount": 17
+      }
+    },
+    {
+      "key": 401583150,
+      "name": "Kia Cadenza",
+      "description": "Premium 4dr Sedan (3.3L 6cyl 6A)",
+      "values": {
+        "price": 35990,
+        "engineSize": 3.3,
+        "power": 293,
+        "MPGCombined": 23,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401630235,
+      "name": "Kia Forte",
+      "description": "Koup EX 2dr Coupe (2.0L 4cyl 6A)",
+      "values": {
+        "price": 19890,
+        "engineSize": 2,
+        "power": 173,
+        "MPGCombined": 29,
+        "averageRating": 4.25,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401612190,
+      "name": "Kia K900",
+      "description": "Premium V6 4dr Sedan (3.8L 6cyl 8A)",
+      "values": {
+        "price": 49000,
+        "engineSize": 3.8,
+        "power": 311,
+        "MPGCombined": 21,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401589783,
+      "name": "Kia Optima",
+      "description": "SX Turbo 4dr Sedan (2.0L 4cyl Turbo 6A)",
+      "values": {
+        "price": 29790,
+        "engineSize": 2,
+        "power": 245,
+        "MPGCombined": 27,
+        "averageRating": 4.667,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 401597526,
+      "name": "Kia Optima Hybrid",
+      "description": "4dr Sedan (2.4L 4cyl gas/electric hybrid 6A)",
+      "values": {
+        "price": 25995,
+        "engineSize": 2.4,
+        "power": 199,
+        "MPGCombined": 38,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200739910,
+      "name": "Kia Rio",
+      "description": "LX 4dr Hatchback (1.6L 4cyl 6A)",
+      "values": {
+        "price": 15495,
+        "engineSize": 1.6,
+        "power": 138,
+        "MPGCombined": 32,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200743582,
+      "name": "Kia Sedona",
+      "description": "SX Limited 4dr Minivan (3.3L 6cyl 6A)",
+      "values": {
+        "price": 39900,
+        "engineSize": 3.3,
+        "power": 276,
+        "MPGCombined": 19,
+        "averageRating": 5,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 200724205,
+      "name": "Kia Sorento",
+      "description": "Limited 4dr SUV AWD (3.3L 6cyl 6A)",
+      "values": {
+        "price": 43300,
+        "engineSize": 3.3,
+        "power": 290,
+        "MPGCombined": 20,
+        "averageRating": 4.688,
+        "reviewsCount": 50
+      }
+    },
+    {
+      "key": 200748659,
+      "name": "Kia Soul",
+      "description": "+ 4dr Wagon (2.0L 4cyl 6A)",
+      "values": {
+        "price": 19300,
+        "engineSize": 2,
+        "power": 164,
+        "MPGCombined": 27,
+        "averageRating": 4.571,
+        "reviewsCount": 21
+      }
+    },
+    {
+      "key": 200746123,
+      "name": "Kia Soul EV",
+      "description": "4dr Wagon (electric DD)",
+      "values": {
+        "price": 33950,
+        "power": null,
+        "MPGCombined": 107,
+        "averageRating": 5,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200743056,
+      "name": "Kia Sportage",
+      "description": "LX 4dr SUV (2.4L 4cyl 6A)",
+      "values": {
+        "price": 22150,
+        "engineSize": 2.4,
+        "power": 182,
+        "MPGCombined": 24,
+        "averageRating": 4.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401575238,
+      "name": "Land Rover Discovery Sport",
+      "description": "SE 4dr SUV AWD (2.0L 4cyl Turbo 9A)",
+      "values": {
+        "price": 37455,
+        "engineSize": 2,
+        "power": 240,
+        "MPGCombined": 23,
+        "averageRating": 4,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 401575014,
+      "name": "Land Rover LR4",
+      "description": "4dr SUV 4WD (3.0L 6cyl S/C 8A)",
+      "values": {
+        "price": 50400,
+        "engineSize": 3,
+        "power": 340,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401589475,
+      "name": "Land Rover Range Rover",
+      "description": "HSE 4dr SUV 4WD (3.0L 6cyl S/C 8A)",
+      "values": {
+        "price": 91950,
+        "engineSize": 3,
+        "power": 380,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401634173,
+      "name": "Land Rover Range Rover Evoque",
+      "description": "Autobiography 4dr SUV AWD (2.0L 4cyl Turbo 9A)",
+      "values": {
+        "price": 60775,
+        "engineSize": 2,
+        "power": 240,
+        "MPGCombined": 25,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401583467,
+      "name": "Land Rover Range Rover Sport",
+      "description": "SE 4dr SUV 4WD (3.0L 6cyl S/C 8A)",
+      "values": {
+        "price": 64950,
+        "engineSize": 3,
+        "power": 340,
+        "MPGCombined": 20,
+        "averageRating": 4.25,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 200747290,
+      "name": "Lexus CT 200h",
+      "description": "4dr Hatchback (1.8L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 31250,
+        "engineSize": 1.8,
+        "power": 134,
+        "MPGCombined": 42,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200746207,
+      "name": "Lexus ES 300h",
+      "description": "4dr Sedan (2.5L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 41020,
+        "engineSize": 2.5,
+        "power": 200,
+        "MPGCombined": 40,
+        "averageRating": 4,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200745234,
+      "name": "Lexus ES 350",
+      "description": "4dr Sedan (3.5L 6cyl 6A)",
+      "values": {
+        "price": 38100,
+        "engineSize": 3.5,
+        "power": 268,
+        "MPGCombined": 26,
+        "averageRating": 4.5,
+        "reviewsCount": 12
+      }
+    },
+    {
+      "key": 401611456,
+      "name": "Lexus GS 200t",
+      "description": "4dr Sedan (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 45615,
+        "engineSize": 2,
+        "power": 241,
+        "MPGCombined": 27,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401611548,
+      "name": "Lexus GS 350",
+      "description": "4dr Sedan AWD (3.5L 6cyl 6A)",
+      "values": {
+        "price": 50470,
+        "engineSize": 3.5,
+        "power": 311,
+        "MPGCombined": 22,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401583476,
+      "name": "Lexus GS 450h",
+      "description": "4dr Sedan (3.5L 6cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 63080,
+        "engineSize": 3.5,
+        "power": 338,
+        "MPGCombined": 31,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200724406,
+      "name": "Lexus GS F",
+      "description": "4dr Sedan (5.0L 8cyl 8A)",
+      "values": {
+        "price": 84440,
+        "engineSize": 5,
+        "power": 467,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200747264,
+      "name": "Lexus GX 460",
+      "description": "4dr SUV 4WD (4.6L 8cyl 6A)",
+      "values": {
+        "price": 50780,
+        "engineSize": 4.6,
+        "power": 301,
+        "MPGCombined": 17,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200747208,
+      "name": "Lexus IS 200t",
+      "description": "4dr Sedan (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 37325,
+        "engineSize": 2,
+        "power": 241,
+        "MPGCombined": 27,
+        "averageRating": 4.667,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 200747207,
+      "name": "Lexus IS 300",
+      "description": "4dr Sedan AWD (3.5L 6cyl 6A)",
+      "values": {
+        "price": 39700,
+        "engineSize": 3.5,
+        "power": 255,
+        "MPGCombined": 22,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200747206,
+      "name": "Lexus IS 350",
+      "description": "4dr Sedan AWD (3.5L 6cyl 6A)",
+      "values": {
+        "price": 43035,
+        "engineSize": 3.5,
+        "power": 306,
+        "MPGCombined": 22,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401580680,
+      "name": "Lexus LS 460",
+      "description": "L 4dr Sedan (4.6L 8cyl 8A)",
+      "values": {
+        "price": 78820,
+        "engineSize": 4.6,
+        "power": 386,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401612858,
+      "name": "Lexus LS 600h L",
+      "description": "4dr Sedan AWD (5.0L 8cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 120440,
+        "engineSize": 5,
+        "power": 438,
+        "MPGCombined": 21,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401582739,
+      "name": "Lexus LX 570",
+      "description": "4dr SUV 4WD (5.7L 8cyl 8A)",
+      "values": {
+        "price": 88880,
+        "engineSize": 5.7,
+        "power": 383,
+        "MPGCombined": 15,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401610912,
+      "name": "Lexus NX 200t",
+      "description": "4dr SUV (2.0L 4cyl Turbo 6A)",
+      "values": {
+        "price": 34965,
+        "engineSize": 2,
+        "power": 235,
+        "MPGCombined": 25,
+        "averageRating": 4.75,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 401610914,
+      "name": "Lexus NX 300h",
+      "description": "4dr SUV AWD (2.5L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 41310,
+        "engineSize": 2.5,
+        "power": 194,
+        "MPGCombined": 32,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401594089,
+      "name": "Lexus RC 200t",
+      "description": "2dr Coupe (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 39995,
+        "engineSize": 2,
+        "power": 241,
+        "MPGCombined": 27,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401594088,
+      "name": "Lexus RC 300",
+      "description": "2dr Coupe AWD (3.5L 6cyl 6A)",
+      "values": {
+        "price": 42610,
+        "engineSize": 3.5,
+        "power": 255,
+        "MPGCombined": 22,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401594048,
+      "name": "Lexus RC 350",
+      "description": "2dr Coupe AWD (3.5L 6cyl 6A)",
+      "values": {
+        "price": 45015,
+        "engineSize": 3.5,
+        "power": 306,
+        "MPGCombined": 22,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401594049,
+      "name": "Lexus RC F",
+      "description": "2dr Coupe (5.0L 8cyl 8A)",
+      "values": {
+        "price": 62805,
+        "engineSize": 5,
+        "power": 467,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401583730,
+      "name": "Lexus RX 350",
+      "description": "4dr SUV AWD (3.5L 6cyl 8A)",
+      "values": {
+        "price": 43300,
+        "engineSize": 3.5,
+        "power": 295,
+        "MPGCombined": 22,
+        "averageRating": 4.192,
+        "reviewsCount": 26
+      }
+    },
+    {
+      "key": 401589093,
+      "name": "Lexus RX 450h",
+      "description": "F Sport 4dr SUV AWD (3.5L 6cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 57045,
+        "engineSize": 3.5,
+        "power": 308,
+        "MPGCombined": 29,
+        "averageRating": 4,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200732084,
+      "name": "Lincoln MKC",
+      "description": "Reserve 4dr SUV AWD (2.0L 4cyl Turbo 6A)",
+      "values": {
+        "price": 42955,
+        "engineSize": 2,
+        "power": 240,
+        "MPGCombined": 22,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401581231,
+      "name": "Lincoln MKS",
+      "description": "4dr Sedan (3.7L 6cyl 6A)",
+      "values": {
+        "price": 39010,
+        "engineSize": 3.7,
+        "power": 350,
+        "MPGCombined": 21,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401593850,
+      "name": "Lincoln MKT",
+      "description": "4dr Wagon AWD w/EcoBoost (3.5L 6cyl Turbo 6A)",
+      "values": {
+        "price": 45365,
+        "engineSize": 3.5,
+        "power": 365,
+        "MPGCombined": 18,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200729336,
+      "name": "Lincoln MKX",
+      "description": "Reserve 4dr SUV (3.7L 6cyl 6A)",
+      "values": {
+        "price": 45315,
+        "engineSize": 3.7,
+        "power": 303,
+        "MPGCombined": 21,
+        "averageRating": 4.625,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 200729082,
+      "name": "Lincoln MKZ",
+      "description": "Black Label 4dr Sedan (2.0L 4cyl Turbo 6A)",
+      "values": {
+        "price": 45605,
+        "engineSize": 2,
+        "power": 231,
+        "MPGCombined": 27,
+        "averageRating": 4.611,
+        "reviewsCount": 18
+      }
+    },
+    {
+      "key": 200737241,
+      "name": "Lincoln Navigator",
+      "description": "Reserve 4dr SUV 4WD (3.5L 6cyl Turbo 6A)",
+      "values": {
+        "price": 74260,
+        "engineSize": 3.5,
+        "power": 365,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401633311,
+      "name": "MINI Cooper",
+      "description": "2dr Convertible (1.5L 3cyl Turbo 6M)",
+      "values": {
+        "price": 25950,
+        "engineSize": 1.5,
+        "power": 134,
+        "MPGCombined": 32,
+        "averageRating": 4.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200741087,
+      "name": "MINI Cooper Clubman",
+      "description": "4dr Hatchback (1.5L 3cyl Turbo 6M)",
+      "values": {
+        "price": 24100,
+        "engineSize": 1.5,
+        "power": 134,
+        "MPGCombined": 30,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200736669,
+      "name": "MINI Cooper Countryman",
+      "description": "S 4dr Wagon (1.6L 4cyl Turbo 6M)",
+      "values": {
+        "price": 26100,
+        "engineSize": 1.6,
+        "power": 181,
+        "MPGCombined": 29,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200745068,
+      "name": "MINI Cooper Paceman",
+      "description": "John Cooper Works ALL4 2dr Hatchback AWD (1.6L 4cyl Turbo 6M)",
+      "values": {
+        "price": 35600,
+        "engineSize": 1.6,
+        "power": 208,
+        "MPGCombined": 28,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401583230,
+      "name": "Maserati Ghibli",
+      "description": "S Q4 4dr Sedan AWD (3.0L 6cyl Turbo 8A)",
+      "values": {
+        "price": 78550,
+        "engineSize": 3,
+        "power": 404,
+        "MPGCombined": 20,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401588497,
+      "name": "Maserati GranTurismo",
+      "description": "MC Centennial 2dr Coupe (4.7L 8cyl 6A)",
+      "values": {
+        "price": 165627,
+        "engineSize": 4.7,
+        "power": 454,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401590497,
+      "name": "Maserati GranTurismo Convertible",
+      "description": "Sport 2dr Convertible (4.7L 8cyl 6A)",
+      "values": {
+        "price": 150465,
+        "engineSize": 4.7,
+        "power": 454,
+        "MPGCombined": 16,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401597830,
+      "name": "Maserati Quattroporte",
+      "description": "S 4dr Sedan (3.0L 6cyl Turbo 8A)",
+      "values": {
+        "price": 99900,
+        "engineSize": 3,
+        "power": 404,
+        "MPGCombined": 19,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200743768,
+      "name": "Mazda 3",
+      "description": "i Touring 4dr Hatchback (2.0L 4cyl 6M)",
+      "values": {
+        "price": 20745,
+        "engineSize": 2,
+        "power": 155,
+        "MPGCombined": 34,
+        "averageRating": 4.4,
+        "reviewsCount": 15
+      }
+    },
+    {
+      "key": 200724973,
+      "name": "Mazda 6",
+      "description": "i Sport 4dr Sedan (2.5L 4cyl 6M)",
+      "values": {
+        "price": 21495,
+        "engineSize": 2.5,
+        "power": 184,
+        "MPGCombined": 30,
+        "averageRating": 4.754,
+        "reviewsCount": 28
+      }
+    },
+    {
+      "key": 200745324,
+      "name": "Mazda CX-3",
+      "description": "Grand Touring 4dr SUV (2.0L 4cyl 6A)",
+      "values": {
+        "price": 24990,
+        "engineSize": 2,
+        "power": 146,
+        "MPGCombined": 32,
+        "averageRating": 4.5,
+        "reviewsCount": 20
+      }
+    },
+    {
+      "key": 401614314,
+      "name": "Mazda CX-5",
+      "description": "Touring 4dr SUV AWD (2.5L 4cyl 6A)",
+      "values": {
+        "price": 26515,
+        "engineSize": 2.5,
+        "power": 184,
+        "MPGCombined": 27,
+        "averageRating": 4.319,
+        "reviewsCount": 100
+      }
+    },
+    {
+      "key": 200734115,
+      "name": "Mazda MX-5 Miata",
+      "description": "Grand Touring 2dr Convertible (2.0L 4cyl 6M)",
+      "values": {
+        "price": 30065,
+        "engineSize": 2,
+        "power": 155,
+        "MPGCombined": 30,
+        "averageRating": 4.87,
+        "reviewsCount": 23
+      }
+    },
+    {
+      "key": 200700835,
+      "name": "Mercedes-Benz AMG GT",
+      "description": "S 2dr Coupe (4.0L 8cyl Turbo 7AM)",
+      "values": {
+        "price": 129900,
+        "engineSize": 4,
+        "power": 503,
+        "MPGCombined": 19,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401598101,
+      "name": "Mercedes-Benz B-Class Electric Drive",
+      "description": "B250e 4dr Hatchback (electric DD)",
+      "values": {
+        "price": 41450,
+        "power": 177,
+        "MPGCombined": 84,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200773063,
+      "name": "Mercedes-Benz C-Class",
+      "description": "C300 Sport 4MATIC 4dr Sedan AWD (2.0L 4cyl Turbo 7A)",
+      "values": {
+        "price": 43125,
+        "engineSize": 2,
+        "power": 241,
+        "MPGCombined": 27,
+        "averageRating": 4.833,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 401601387,
+      "name": "Mercedes-Benz CLA-Class",
+      "description": "AMG CLA45 4dr Sedan AWD (2.0L 4cyl Turbo 7AM)",
+      "values": {
+        "price": 49500,
+        "engineSize": 2,
+        "power": 375,
+        "MPGCombined": 27,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200745890,
+      "name": "Mercedes-Benz CLS-Class",
+      "description": "AMG CLS63 S 4MATIC 4dr Sedan AWD (5.5L 8cyl Turbo 7A)",
+      "values": {
+        "price": 107800,
+        "engineSize": 5.5,
+        "power": 577,
+        "MPGCombined": 19,
+        "averageRating": 4,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200732942,
+      "name": "Mercedes-Benz E-Class",
+      "description": "E400 4MATIC 4dr Sedan AWD (3.0L 6cyl Turbo 7A)",
+      "values": {
+        "price": 65600,
+        "engineSize": 3,
+        "power": 329,
+        "MPGCombined": 24,
+        "averageRating": 4.833,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 401597153,
+      "name": "Mercedes-Benz G-Class",
+      "description": "AMG G63 4dr SUV 4WD (5.5L 8cyl Turbo 7A)",
+      "values": {
+        "price": 139900,
+        "engineSize": 5.5,
+        "power": 563,
+        "MPGCombined": 13,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200732532,
+      "name": "Mercedes-Benz GL-Class",
+      "description": "GL350 BlueTEC 4MATIC 4dr SUV AWD (3.0L 6cyl Turbodiesel 7A)",
+      "values": {
+        "price": 63600,
+        "engineSize": 3,
+        "power": 240,
+        "MPGCombined": 22,
+        "averageRating": 4,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 401597611,
+      "name": "Mercedes-Benz GLA-Class",
+      "description": "GLA250 4MATIC 4dr SUV AWD (2.0L 4cyl Turbo 7AM)",
+      "values": {
+        "price": 34500,
+        "engineSize": 2,
+        "power": 208,
+        "MPGCombined": 28,
+        "averageRating": 4.333,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 401589096,
+      "name": "Mercedes-Benz GLC-Class",
+      "description": "GLC300 4MATIC 4dr SUV AWD (2.0L 4cyl Turbo 9A)",
+      "values": {
+        "price": 40950,
+        "engineSize": 2,
+        "power": 241,
+        "MPGCombined": 24,
+        "averageRating": 4.333,
+        "reviewsCount": 9
+      }
+    },
+    {
+      "key": 200748633,
+      "name": "Mercedes-Benz GLE-Class",
+      "description": "GLE350 4MATIC 4dr SUV AWD (3.5L 6cyl 7A)",
+      "values": {
+        "price": 53600,
+        "engineSize": 3.5,
+        "power": 302,
+        "MPGCombined": 19,
+        "averageRating": 4.714,
+        "reviewsCount": 7
+      }
+    },
+    {
+      "key": 200749717,
+      "name": "Mercedes-Benz GLE-Class Coupe",
+      "description": "GLE450 AMG 4MATIC 4dr SUV AWD (3.0L 6cyl Turbo 9A)",
+      "values": {
+        "price": 65100,
+        "engineSize": 3,
+        "power": 362,
+        "MPGCombined": 20,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200721613,
+      "name": "Mercedes-Benz Maybach",
+      "description": "S600 4dr Sedan (6.0L 12cyl Turbo 7A)",
+      "values": {
+        "price": 189350,
+        "engineSize": 6,
+        "power": 523,
+        "MPGCombined": 16,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200721410,
+      "name": "Mercedes-Benz Metris",
+      "description": "Cargo 3dr Minivan (2.0L 4cyl Turbo 7A)",
+      "values": {
+        "price": 28950,
+        "engineSize": 2,
+        "power": 208,
+        "MPGCombined": 22,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200741195,
+      "name": "Mercedes-Benz S-Class",
+      "description": "S63 AMG 4MATIC 2dr Coupe AWD (5.5 8cyl Turbo 7A)",
+      "values": {
+        "price": 163150,
+        "engineSize": 5.5,
+        "power": 577,
+        "MPGCombined": 19,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200739148,
+      "name": "Mercedes-Benz SL-Class",
+      "description": "SL400 2dr Convertible (3.0L 6cyl Turbo 7A)",
+      "values": {
+        "price": 85050,
+        "engineSize": 3,
+        "power": 329,
+        "MPGCombined": 23,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200745347,
+      "name": "Mercedes-Benz SLK-Class",
+      "description": "SLK350 2dr Convertible (3.5L 6cyl 7A)",
+      "values": {
+        "price": 59200,
+        "engineSize": 3.5,
+        "power": 302,
+        "MPGCombined": 25,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200779953,
+      "name": "Mercedes-Benz Sprinter",
+      "description": "2500 144 WB Crew 3dr Van (2.1L 4cyl Turbodiesel 7A)",
+      "values": {
+        "price": 39170,
+        "engineSize": 2.1,
+        "power": 161,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401631622,
+      "name": "Mercedes-Benz Sprinter Worker",
+      "description": "Cargo 3dr Van (2.1L 4cyl Turbodiesel 7A)",
+      "values": {
+        "price": 32495,
+        "engineSize": 2.1,
+        "power": 161,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401582340,
+      "name": "Mitsubishi Lancer",
+      "description": "GT 4dr Sedan (2.4L 4cyl 5M)",
+      "values": {
+        "price": 22495,
+        "engineSize": 2.4,
+        "power": 168,
+        "MPGCombined": 26,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200734287,
+      "name": "Mitsubishi Outlander",
+      "description": "ES 4dr SUV (2.4L 4cyl CVT)",
+      "values": {
+        "price": 22995,
+        "engineSize": 2.4,
+        "power": 166,
+        "MPGCombined": 28,
+        "averageRating": 4.476,
+        "reviewsCount": 21
+      }
+    },
+    {
+      "key": 401612370,
+      "name": "Mitsubishi Outlander Sport",
+      "description": "2.4 SE 4dr SUV (2.4L 4cyl CVT)",
+      "values": {
+        "price": 22495,
+        "engineSize": 2.4,
+        "power": 168,
+        "MPGCombined": 25,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200726944,
+      "name": "Mitsubishi i-MiEV",
+      "description": "ES 4dr Hatchback (electric DD)",
+      "values": {
+        "price": 22995,
+        "power": 66,
+        "MPGCombined": 114,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200732071,
+      "name": "Nissan 370Z",
+      "description": "Touring Sport 2dr Convertible (3.7L 6cyl 6M)",
+      "values": {
+        "price": 48100,
+        "engineSize": 3.7,
+        "power": 332,
+        "MPGCombined": 20,
+        "averageRating": 4.562,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 401598143,
+      "name": "Nissan Altima",
+      "description": "3.5 SR 4dr Sedan w/Prod. End 1/16 (3.5L 6cyl CVT)",
+      "values": {
+        "price": 27390,
+        "engineSize": 3.5,
+        "power": 270,
+        "MPGCombined": 27,
+        "averageRating": 4.4,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 401581501,
+      "name": "Nissan Frontier",
+      "description": "SV 4dr King Cab 6.1 ft. SB (2.5L 4cyl 5A)",
+      "values": {
+        "price": 23230,
+        "engineSize": 2.5,
+        "power": 152,
+        "MPGCombined": 20,
+        "averageRating": 4,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 200729795,
+      "name": "Nissan GT-R",
+      "description": "Premium 2dr Coupe AWD (3.8L 6cyl Turbo 6AM)",
+      "values": {
+        "price": 101770,
+        "engineSize": 3.8,
+        "power": 545,
+        "MPGCombined": 19,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401612919,
+      "name": "Nissan Juke",
+      "description": "NISMO 4dr Hatchback (1.6L 4cyl Turbo 6M)",
+      "values": {
+        "price": 24830,
+        "engineSize": 1.6,
+        "power": 188,
+        "MPGCombined": 31,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401610732,
+      "name": "Nissan Leaf",
+      "description": "S 4dr Hatchback (electric DD)",
+      "values": {
+        "price": 29010,
+        "power": null,
+        "MPGCombined": 115,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200732061,
+      "name": "Nissan Maxima",
+      "description": "3.5 SR 4dr Sedan (3.5L 6cyl CVT)",
+      "values": {
+        "price": 37770,
+        "engineSize": 3.5,
+        "power": 300,
+        "MPGCombined": 26,
+        "averageRating": 4.238,
+        "reviewsCount": 41
+      }
+    },
+    {
+      "key": 401613856,
+      "name": "Nissan Murano",
+      "description": "SL 4dr SUV (3.5L 6cyl CVT)",
+      "values": {
+        "price": 37050,
+        "engineSize": 3.5,
+        "power": 260,
+        "MPGCombined": 24,
+        "averageRating": 3.75,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401583847,
+      "name": "Nissan NV Cargo",
+      "description": "2500 S 3dr Van w/High Roof (4.0L 6cyl 5A)",
+      "values": {
+        "price": 29890,
+        "engineSize": 4,
+        "power": 261,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401582702,
+      "name": "Nissan NV Passenger",
+      "description": "3500 SV 3dr Van (5.6L 8cyl 5A)",
+      "values": {
+        "price": 36210,
+        "engineSize": 5.6,
+        "power": 317,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401627755,
+      "name": "Nissan NV200",
+      "description": "S 4dr Minivan (2.0L 4cyl CVT)",
+      "values": {
+        "price": 20870,
+        "engineSize": 2,
+        "power": 131,
+        "MPGCombined": 25,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401611674,
+      "name": "Nissan Pathfinder",
+      "description": "SL 4dr SUV (3.5L 6cyl CVT)",
+      "values": {
+        "price": 36410,
+        "engineSize": 3.5,
+        "power": 260,
+        "MPGCombined": 23,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401610781,
+      "name": "Nissan Quest",
+      "description": "SV 4dr Minivan (3.5L 6cyl CVT)",
+      "values": {
+        "price": 30540,
+        "engineSize": 3.5,
+        "power": 260,
+        "MPGCombined": 23,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401581355,
+      "name": "Nissan Rogue",
+      "description": "S 4dr SUV (2.5L 4cyl CVT)",
+      "values": {
+        "price": 23290,
+        "engineSize": 2.5,
+        "power": 170,
+        "MPGCombined": 29,
+        "averageRating": 4.316,
+        "reviewsCount": 19
+      }
+    },
+    {
+      "key": 401614168,
+      "name": "Nissan Sentra",
+      "description": "SV 4dr Sedan (1.8L 4cyl CVT)",
+      "values": {
+        "price": 18550,
+        "engineSize": 1.8,
+        "power": 130,
+        "MPGCombined": 33,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401614007,
+      "name": "Nissan Titan XD",
+      "description": "Platinum Reserve 4dr Crew Cab 4WD SB (5.0L 8cyl Turbodiesel 6A)",
+      "values": {
+        "price": 60520,
+        "engineSize": 5,
+        "power": 310,
+        "MPGCombined": null,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200744980,
+      "name": "Nissan Versa",
+      "description": "1.6 S 4dr Sedan (1.6L 4cyl 4A)",
+      "values": {
+        "price": 13540,
+        "engineSize": 1.6,
+        "power": 109,
+        "MPGCombined": 30,
+        "averageRating": 4.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200759315,
+      "name": "Nissan Versa Note",
+      "description": "1.6 SR 4dr Hatchback (1.6L 4cyl CVT)",
+      "values": {
+        "price": 17980,
+        "engineSize": 1.6,
+        "power": 109,
+        "MPGCombined": 35,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401612842,
+      "name": "Porsche 911",
+      "description": "GT3 2dr Coupe (3.8L 6cyl 7AM)",
+      "values": {
+        "price": 130400,
+        "engineSize": 3.8,
+        "power": 475,
+        "MPGCombined": 17,
+        "averageRating": 4,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200731947,
+      "name": "Porsche Boxster",
+      "description": "2dr Convertible (2.7L 6cyl 6M)",
+      "values": {
+        "price": 52100,
+        "engineSize": 2.7,
+        "power": 265,
+        "MPGCombined": 25,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200733292,
+      "name": "Porsche Cayenne",
+      "description": "Turbo S 4dr SUV AWD (4.8L 8cyl Turbo 8A)",
+      "values": {
+        "price": 157300,
+        "engineSize": 4.8,
+        "power": 570,
+        "MPGCombined": 17,
+        "averageRating": 3,
+        "reviewsCount": 6
+      }
+    },
+    {
+      "key": 200729982,
+      "name": "Porsche Cayman",
+      "description": "GTS 2dr Coupe (3.4L 6cyl 6M)",
+      "values": {
+        "price": 75200,
+        "engineSize": 3.4,
+        "power": 340,
+        "MPGCombined": 22,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200731399,
+      "name": "Porsche Macan",
+      "description": "Turbo 4dr SUV AWD (3.6L 6cyl Turbo 7AM)",
+      "values": {
+        "price": 73900,
+        "engineSize": 3.6,
+        "power": 400,
+        "MPGCombined": 20,
+        "averageRating": 5,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 200734266,
+      "name": "Porsche Panamera",
+      "description": "S 4dr Sedan (3.0L 6cyl Turbo 7AM)",
+      "values": {
+        "price": 93200,
+        "engineSize": 3,
+        "power": 420,
+        "MPGCombined": 22,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200742280,
+      "name": "Ram 1500",
+      "description": "SLT 2dr Regular Cab SB (3.6L 6cyl 8A)",
+      "values": {
+        "price": 31495,
+        "engineSize": 3.6,
+        "power": 305,
+        "MPGCombined": 21,
+        "averageRating": 4.7,
+        "reviewsCount": 10
+      }
+    },
+    {
+      "key": 200745552,
+      "name": "Ram 2500",
+      "description": "Outdoorsman 4dr Crew Cab 4WD SB (5.7L 8cyl 6A)",
+      "values": {
+        "price": 46220,
+        "engineSize": 5.7,
+        "power": 383,
+        "MPGCombined": null,
+        "averageRating": 4,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 200743932,
+      "name": "Ram 3500",
+      "description": "Longhorn 4dr Mega Cab 4WD SB (5.7L 8cyl 6A)",
+      "values": {
+        "price": 58275,
+        "engineSize": 5.7,
+        "power": 383,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200734555,
+      "name": "Ram Promaster Cargo Van",
+      "description": "1500 Low Roof 3dr Van w/136\" Wheelbase (3.6L 6cyl 6A)",
+      "values": {
+        "price": 30630,
+        "engineSize": 3.6,
+        "power": 280,
+        "MPGCombined": null,
+        "averageRating": 3.2,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 401582310,
+      "name": "Ram Promaster City",
+      "description": "Tradesman SLT Cargo 4dr Minivan (2.4L 4cyl 9A)",
+      "values": {
+        "price": 25070,
+        "engineSize": 2.4,
+        "power": 178,
+        "MPGCombined": 26,
+        "averageRating": 3,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200734215,
+      "name": "Ram Promaster Window Van",
+      "description": "2500 High Roof 3dr Van (3.6L 6cyl 6A)",
+      "values": {
+        "price": 34150,
+        "engineSize": 3.6,
+        "power": 280,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401628488,
+      "name": "Rolls-Royce Dawn",
+      "description": "2dr Convertible (6.6L 12cyl Turbo 8A)",
+      "values": {
+        "price": 335000,
+        "engineSize": 6.6,
+        "power": 563,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401630686,
+      "name": "Rolls-Royce Ghost Series II",
+      "description": "EWB 4dr Sedan (6.6L 12cyl Turbo 8A)",
+      "values": {
+        "price": 329325,
+        "engineSize": 6.6,
+        "power": 563,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401629132,
+      "name": "Rolls-Royce Phantom",
+      "description": "4dr Sedan (6.7L 12cyl 8A)",
+      "values": {
+        "price": 417825,
+        "engineSize": 6.7,
+        "power": 453,
+        "MPGCombined": 15,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401627842,
+      "name": "Rolls-Royce Phantom Coupe",
+      "description": "2dr Coupe (6.7L 12cyl 8A)",
+      "values": {
+        "price": 449525,
+        "engineSize": 6.7,
+        "power": 453,
+        "MPGCombined": 15,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401631106,
+      "name": "Rolls-Royce Phantom Drophead Coupe",
+      "description": "2dr Convertible (6.7L 12cyl 8A)",
+      "values": {
+        "price": 492000,
+        "engineSize": 6.7,
+        "power": 453,
+        "MPGCombined": 15,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401629389,
+      "name": "Rolls-Royce Wraith",
+      "description": "2dr Coupe (6.6L 12cyl Turbo 8A)",
+      "values": {
+        "price": 304350,
+        "engineSize": 6.6,
+        "power": 624,
+        "MPGCombined": 17,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200734752,
+      "name": "Scion FR-S",
+      "description": "2dr Coupe (2.0L 4cyl 6A)",
+      "values": {
+        "price": 26405,
+        "engineSize": 2,
+        "power": 200,
+        "MPGCombined": 29,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200730056,
+      "name": "Scion iA",
+      "description": "4dr Sedan (1.5L 4cyl 6M)",
+      "values": {
+        "price": 15700,
+        "engineSize": 1.5,
+        "power": 106,
+        "MPGCombined": 36,
+        "averageRating": 4.8,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 200742459,
+      "name": "Scion iM",
+      "description": "4dr Hatchback (1.8L 4cyl CVT)",
+      "values": {
+        "price": 19200,
+        "engineSize": 1.8,
+        "power": 137,
+        "MPGCombined": 32,
+        "averageRating": 4.667,
+        "reviewsCount": 9
+      }
+    },
+    {
+      "key": 200745613,
+      "name": "Scion tC",
+      "description": "2dr Hatchback (2.5L 4cyl 6M)",
+      "values": {
+        "price": 19385,
+        "engineSize": 2.5,
+        "power": 179,
+        "MPGCombined": 27,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200772768,
+      "name": "Subaru BRZ",
+      "description": "Limited 2dr Coupe (2.0L 4cyl 6M)",
+      "values": {
+        "price": 27395,
+        "engineSize": 2,
+        "power": 200,
+        "MPGCombined": 26,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401575895,
+      "name": "Subaru Crosstrek",
+      "description": "2.0i Limited PZEV 4dr SUV AWD (2.0L 4cyl CVT)",
+      "values": {
+        "price": 25095,
+        "engineSize": 2,
+        "power": 148,
+        "MPGCombined": 30,
+        "averageRating": 4.25,
+        "reviewsCount": 16
+      }
+    },
+    {
+      "key": 200740440,
+      "name": "Subaru Forester",
+      "description": "2.5i Premium PZEV 4dr SUV AWD (2.5L 4cyl 6M)",
+      "values": {
+        "price": 25295,
+        "engineSize": 2.5,
+        "power": 170,
+        "MPGCombined": 25,
+        "averageRating": 4.419,
+        "reviewsCount": 62
+      }
+    },
+    {
+      "key": 401574196,
+      "name": "Subaru Impreza",
+      "description": "2.0i Sport Limited PZEV 4dr Hatchback AWD (2.0L 4cyl CVT)",
+      "values": {
+        "price": 23595,
+        "engineSize": 2,
+        "power": 148,
+        "MPGCombined": 31,
+        "averageRating": 4.714,
+        "reviewsCount": 7
+      }
+    },
+    {
+      "key": 200738273,
+      "name": "Subaru Legacy",
+      "description": "2.5i 4dr Sedan AWD (2.5L 4cyl CVT)",
+      "values": {
+        "price": 21745,
+        "engineSize": 2.5,
+        "power": 175,
+        "MPGCombined": 31,
+        "averageRating": 4.267,
+        "reviewsCount": 15
+      }
+    },
+    {
+      "key": 200738665,
+      "name": "Subaru Outback",
+      "description": "2.5i Limited 4dr Wagon AWD (2.5L 4cyl CVT)",
+      "values": {
+        "price": 30395,
+        "engineSize": 2.5,
+        "power": 175,
+        "MPGCombined": 29,
+        "averageRating": 4.586,
+        "reviewsCount": 70
+      }
+    },
+    {
+      "key": 200733186,
+      "name": "Subaru WRX",
+      "description": "Limited 4dr Sedan AWD (2.0L 4cyl Turbo 6M)",
+      "values": {
+        "price": 30395,
+        "engineSize": 2,
+        "power": 268,
+        "MPGCombined": 23,
+        "averageRating": 4.632,
+        "reviewsCount": 19
+      }
+    },
+    {
+      "key": 401632897,
+      "name": "Tesla Model S",
+      "description": "70D 4dr Sedan AWD (electric DD)",
+      "values": {
+        "price": 75000,
+        "power": null,
+        "MPGCombined": 101,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200747162,
+      "name": "Toyota 4Runner",
+      "description": "Limited 4dr SUV 4WD (4.0L 6cyl 5A)",
+      "values": {
+        "price": 44160,
+        "engineSize": 4,
+        "power": 270,
+        "MPGCombined": 19,
+        "averageRating": 4.8,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 401583414,
+      "name": "Toyota Avalon",
+      "description": "XLE 4dr Sedan (3.5L 6cyl 6A)",
+      "values": {
+        "price": 32650,
+        "engineSize": 3.5,
+        "power": 268,
+        "MPGCombined": 26,
+        "averageRating": 3.75,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401583433,
+      "name": "Toyota Avalon Hybrid",
+      "description": "Limited 4dr Sedan (2.5L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 41950,
+        "engineSize": 2.5,
+        "power": 200,
+        "MPGCombined": 40,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200746620,
+      "name": "Toyota Camry",
+      "description": "Special Edition 4dr Sedan (2.5L 4cyl 6A)",
+      "values": {
+        "price": 25715,
+        "engineSize": 2.5,
+        "power": 178,
+        "MPGCombined": 30,
+        "averageRating": 3.788,
+        "reviewsCount": 33
+      }
+    },
+    {
+      "key": 200747126,
+      "name": "Toyota Camry Hybrid",
+      "description": "LE 4dr Sedan (2.5L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 26790,
+        "engineSize": 2.5,
+        "power": 200,
+        "MPGCombined": 41,
+        "averageRating": 4.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200746661,
+      "name": "Toyota Corolla",
+      "description": "S 4dr Sedan (1.8L 4cyl CVT)",
+      "values": {
+        "price": 19365,
+        "engineSize": 1.8,
+        "power": 132,
+        "MPGCombined": 33,
+        "averageRating": 4.64,
+        "reviewsCount": 25
+      }
+    },
+    {
+      "key": 401596899,
+      "name": "Toyota Highlander",
+      "description": "Limited 4dr SUV AWD (3.5L 6cyl 6A)",
+      "values": {
+        "price": 41875,
+        "engineSize": 3.5,
+        "power": 270,
+        "MPGCombined": 21,
+        "averageRating": 4.5,
+        "reviewsCount": 18
+      }
+    },
+    {
+      "key": 401596974,
+      "name": "Toyota Highlander Hybrid",
+      "description": "Limited 4dr SUV AWD (3.5L 6cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 47870,
+        "engineSize": 3.5,
+        "power": 280,
+        "MPGCombined": 27,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401581946,
+      "name": "Toyota Land Cruiser",
+      "description": "4dr SUV 4WD (5.7L 8cyl 8A)",
+      "values": {
+        "price": 83825,
+        "engineSize": 5.7,
+        "power": 381,
+        "MPGCombined": 15,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200711330,
+      "name": "Toyota Mirai",
+      "description": "4dr Sedan (electric DD)",
+      "values": {
+        "price": 57500,
+        "power": 153,
+        "MPGCombined": null,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401611906,
+      "name": "Toyota Prius",
+      "description": "Four Touring 4dr Hatchback (1.8L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 30000,
+        "engineSize": 1.8,
+        "power": 121,
+        "MPGCombined": 52,
+        "averageRating": 4.5,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 401597750,
+      "name": "Toyota Prius c",
+      "description": "Persona Series Special Edition 4dr Hatchback (1.5L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 21355,
+        "engineSize": 1.5,
+        "power": 99,
+        "MPGCombined": 50,
+        "averageRating": 4,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 200771448,
+      "name": "Toyota Prius v",
+      "description": "Two 4dr Wagon (1.8L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 26675,
+        "engineSize": 1.8,
+        "power": 134,
+        "MPGCombined": 42,
+        "averageRating": 4.75,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 200731831,
+      "name": "Toyota RAV4",
+      "description": "SE 4dr SUV (2.5L 4cyl 6A)",
+      "values": {
+        "price": 29265,
+        "engineSize": 2.5,
+        "power": 176,
+        "MPGCombined": 27,
+        "averageRating": 3.9,
+        "reviewsCount": 20
+      }
+    },
+    {
+      "key": 401601469,
+      "name": "Toyota RAV4 Hybrid",
+      "description": "XLE 4dr SUV AWD (2.5L 4cyl gas/electric hybrid CVT)",
+      "values": {
+        "price": 28370,
+        "engineSize": 2.5,
+        "power": 194,
+        "MPGCombined": 33,
+        "averageRating": 4.533,
+        "reviewsCount": 15
+      }
+    },
+    {
+      "key": 401566725,
+      "name": "Toyota Sequoia",
+      "description": "SR5 4dr SUV (5.7L 8cyl 6A)",
+      "values": {
+        "price": 45325,
+        "engineSize": 5.7,
+        "power": 381,
+        "MPGCombined": 15,
+        "averageRating": 4.5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401611615,
+      "name": "Toyota Sienna",
+      "description": "LE 7-Passenger Mobility 4dr Minivan (3.5L 6cyl 6A)",
+      "values": {
+        "price": 31840,
+        "engineSize": 3.5,
+        "power": 266,
+        "MPGCombined": 21,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401573715,
+      "name": "Toyota Tacoma",
+      "description": "TRD Off Road 4dr Double Cab 4WD 5.0 ft. SB (3.5L 6cyl 6A)",
+      "values": {
+        "price": 33730,
+        "engineSize": 3.5,
+        "power": 278,
+        "MPGCombined": 20,
+        "averageRating": 3.563,
+        "reviewsCount": 87
+      }
+    },
+    {
+      "key": 200771536,
+      "name": "Toyota Tundra",
+      "description": "SR5 4dr CrewMax SB (5.7L 8cyl 6A)",
+      "values": {
+        "price": 34970,
+        "engineSize": 5.7,
+        "power": 381,
+        "MPGCombined": 15,
+        "averageRating": 4.632,
+        "reviewsCount": 19
+      }
+    },
+    {
+      "key": 401598566,
+      "name": "Toyota Yaris",
+      "description": "LE 2dr Hatchback (1.5L 4cyl 4A)",
+      "values": {
+        "price": 16555,
+        "engineSize": 1.5,
+        "power": 106,
+        "MPGCombined": 33,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401628497,
+      "name": "Volkswagen Beetle",
+      "description": "1.8T Wolfsburg Edition 2dr Hatchback (1.8L 4cyl Turbo 6A)",
+      "values": {
+        "price": 19595,
+        "engineSize": 1.8,
+        "power": 170,
+        "MPGCombined": 29,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401633603,
+      "name": "Volkswagen Beetle Convertible",
+      "description": "1.8T Denim PZEV 2dr Convertible (1.8L 4cyl Turbo 6A)",
+      "values": {
+        "price": 25995,
+        "engineSize": 1.8,
+        "power": 170,
+        "MPGCombined": 29,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401593993,
+      "name": "Volkswagen CC",
+      "description": "3.6L V6 4Motion Executive 4dr Sedan AWD (3.6L 6cyl 6AM)",
+      "values": {
+        "price": 44355,
+        "engineSize": 3.6,
+        "power": 280,
+        "MPGCombined": 21,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200771659,
+      "name": "Volkswagen Eos",
+      "description": "Komfort 2dr Convertible (2.0L 4cyl Turbo 6AM)",
+      "values": {
+        "price": 31995,
+        "engineSize": 2,
+        "power": 200,
+        "MPGCombined": 26,
+        "averageRating": 5,
+        "reviewsCount": 2
+      }
+    },
+    {
+      "key": 401572289,
+      "name": "Volkswagen Golf",
+      "description": "TSI 2dr Hatchback (1.8L 4cyl Turbo 6A)",
+      "values": {
+        "price": 19595,
+        "engineSize": 1.8,
+        "power": 170,
+        "MPGCombined": 30,
+        "averageRating": 5,
+        "reviewsCount": 1
+      }
+    },
+    {
+      "key": 200751208,
+      "name": "Volkswagen Golf GTI",
+      "description": "S w/Performance Package 4dr Hatchback (2.0L 4cyl Turbo 6AM)",
+      "values": {
+        "price": 28190,
+        "engineSize": 2,
+        "power": 220,
+        "MPGCombined": 29,
+        "averageRating": 4.882,
+        "reviewsCount": 17
+      }
+    },
+    {
+      "key": 200749661,
+      "name": "Volkswagen Golf R",
+      "description": "w/Dynamic Chassis Control and Navigation 4dr Hatchback AWD (2.0L 4cyl Turbo 6AM)",
+      "values": {
+        "price": 38995,
+        "engineSize": 2,
+        "power": 292,
+        "MPGCombined": 26,
+        "averageRating": 4.75,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401633609,
+      "name": "Volkswagen Golf SportWagen",
+      "description": "TSI Limited Edition 4dr Wagon (1.8L 4cyl Turbo 6A)",
+      "values": {
+        "price": 24995,
+        "engineSize": 1.8,
+        "power": 170,
+        "MPGCombined": 30,
+        "averageRating": 4.5,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401597480,
+      "name": "Volkswagen Jetta",
+      "description": "1.4T S 4dr Sedan (1.4L 4cyl Turbo 5M)",
+      "values": {
+        "price": 17680,
+        "engineSize": 1.4,
+        "power": 150,
+        "MPGCombined": 33,
+        "averageRating": 4.833,
+        "reviewsCount": 24
+      }
+    },
+    {
+      "key": 401589426,
+      "name": "Volkswagen Passat",
+      "description": "R-Line PZEV 4dr Sedan (1.8L 4cyl Turbo 6A)",
+      "values": {
+        "price": 23975,
+        "engineSize": 1.8,
+        "power": 170,
+        "MPGCombined": 31,
+        "averageRating": 5,
+        "reviewsCount": 5
+      }
+    },
+    {
+      "key": 200749533,
+      "name": "Volkswagen Tiguan",
+      "description": "SE 4dr SUV (2.0L 4cyl Turbo 6A)",
+      "values": {
+        "price": 31390,
+        "engineSize": 2,
+        "power": 200,
+        "MPGCombined": 23,
+        "averageRating": 4.25,
+        "reviewsCount": 8
+      }
+    },
+    {
+      "key": 200759791,
+      "name": "Volkswagen Touareg",
+      "description": "TDI Sport w/Technology 4dr SUV AWD (3.0L 6cyl Turbodiesel 8A)",
+      "values": {
+        "price": 50245,
+        "engineSize": 3,
+        "power": 240,
+        "MPGCombined": 25,
+        "averageRating": 4.667,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 401597170,
+      "name": "Volkswagen e-Golf",
+      "description": "SEL Premium 4dr Hatchback (electric DD)",
+      "values": {
+        "price": 35595,
+        "power": 115,
+        "MPGCombined": 117,
+        "averageRating": 3.667,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 401630328,
+      "name": "Volvo S60",
+      "description": "T6 Drive-E R-Design Platinum 4dr Sedan AWD (2.0L 4cyl Twincharger 8A)",
+      "values": {
+        "price": 47900,
+        "engineSize": 2,
+        "power": 302,
+        "MPGCombined": 26,
+        "averageRating": 5,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 200737891,
+      "name": "Volvo S80",
+      "description": "T5 Drive-E 4dr Sedan (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 43450,
+        "engineSize": 2,
+        "power": 240,
+        "MPGCombined": 30,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401628203,
+      "name": "Volvo V60",
+      "description": "T5 4dr Wagon AWD (2.5L 5cyl Turbo 6A)",
+      "values": {
+        "price": 37650,
+        "engineSize": 2.5,
+        "power": 250,
+        "MPGCombined": 24,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 200737941,
+      "name": "Volvo V60 Cross Country",
+      "description": "T5 4dr Wagon AWD (2.5L 5cyl Turbo)",
+      "values": {
+        "price": 41200,
+        "engineSize": 2.5,
+        "power": 250,
+        "MPGCombined": 24,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    },
+    {
+      "key": 401628175,
+      "name": "Volvo XC60",
+      "description": "T6 Drive-E R-Design Platinum 4dr SUV AWD (2.0L 4cyl Twincharger 8A)",
+      "values": {
+        "price": 51300,
+        "engineSize": 2,
+        "power": 302,
+        "MPGCombined": 24,
+        "averageRating": 5,
+        "reviewsCount": 3
+      }
+    },
+    {
+      "key": 401630580,
+      "name": "Volvo XC70",
+      "description": "T5 Classic Platinum 4dr Wagon AWD (2.5L 5cyl Turbo 6A)",
+      "values": {
+        "price": 48175,
+        "engineSize": 2.5,
+        "power": 250,
+        "MPGCombined": 22,
+        "averageRating": 4.75,
+        "reviewsCount": 4
+      }
+    },
+    {
+      "key": 401628189,
+      "name": "Volvo XC90",
+      "description": "T5 R-Design 4dr SUV AWD (2.0L 4cyl Turbo 8A)",
+      "values": {
+        "price": 51350,
+        "engineSize": 2,
+        "power": 250,
+        "MPGCombined": 23,
+        "averageRating": 4.091,
+        "reviewsCount": 22
+      }
+    },
+    {
+      "key": 200705425,
+      "name": "smart fortwo",
+      "description": "pure coupe 2dr Hatchback (1.0L 3cyl Turbo 5M)",
+      "values": {
+        "price": 14650,
+        "engineSize": 1,
+        "power": 89,
+        "MPGCombined": 35,
+        "averageRating": null,
+        "reviewsCount": null
+      }
+    }
+  ]
+}
