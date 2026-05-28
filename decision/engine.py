@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, replace
-from math import cos, isfinite, pi, sin
+from math import isfinite
 from typing import Any, Iterable
+
+import numpy as np
+
+from .layouts import compute_layout
 
 
 EPSILON = 1e-9
@@ -27,6 +31,91 @@ class Option:
     name: str
     description: str
     values: dict[str, Any]
+
+
+@dataclass(frozen=True)
+class ObjectiveMetadata:
+    key: str
+    label: str
+    goal: str
+    weight: float
+    minimum: float
+    maximum: float
+    target: float | None
+    formatter: str | None
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "key": self.key,
+            "label": self.label,
+            "goal": self.goal,
+            "weight": self.weight,
+            "min": self.minimum,
+            "max": self.maximum,
+            "target": self.target,
+            "formatter": self.formatter,
+        }
+
+
+@dataclass(frozen=True)
+class AlternativeResult:
+    id: str
+    name: str
+    gain: float
+    loss: float
+    ratio: float
+    explanation: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "id": self.id,
+            "name": self.name,
+            "gain": self.gain,
+            "loss": self.loss,
+            "ratio": self.ratio,
+            "explanation": self.explanation,
+        }
+
+
+@dataclass(frozen=True)
+class OptionResult:
+    id: str
+    name: str
+    description: str
+    values: dict[str, Any]
+    scores: dict[str, float]
+    missing: dict[str, bool]
+    pareto: bool
+    dominated_by: tuple[str, ...]
+    reason: str
+
+    def decision_dict(self) -> dict[str, Any]:
+        dominated_by = list(self.dominated_by)
+        return {
+            "id": self.id,
+            "name": self.name,
+            "description": self.description,
+            "values": self.values,
+            "scores": self.scores,
+            "missing": self.missing,
+            "pareto": self.pareto,
+            "dominated_by": dominated_by,
+            "dominatedBy": dominated_by,
+            "reason": self.reason,
+        }
+
+
+@dataclass(frozen=True)
+class DecisionResult:
+    feasible_options: tuple[OptionResult, ...]
+    objective_keys: tuple[str, ...]
+    normalized_scores: np.ndarray
+    pareto_mask: np.ndarray
+    dominated_by: dict[str, list[str]]
+    recommendations: dict[str, tuple[AlternativeResult, ...]]
+    objective_metadata: tuple[ObjectiveMetadata, ...]
+    selected_id: str | None
+    total_count: int
 
 
 def coerce_float(value: Any) -> float | None:
@@ -151,30 +240,6 @@ def pareto_frontier(
     return pareto, dominated_by
 
 
-def objective_anchors(objectives: list[Objective]) -> dict[str, dict[str, float]]:
-    count = len(objectives)
-    if count == 0:
-        return {}
-    anchors: dict[str, dict[str, float]] = {}
-    for index, objective in enumerate(objectives):
-        angle = (2 * pi * index / count) - (pi / 2)
-        anchors[objective.key] = {
-            "x": cos(angle),
-            "y": sin(angle),
-            "angle": angle,
-        }
-    return anchors
-
-
-def option_position(scores: dict[str, float], anchors: dict[str, dict[str, float]]) -> dict[str, float]:
-    total = sum(max(0.0, scores.get(key, 0.0)) for key in anchors)
-    if total <= EPSILON:
-        return {"x": 0.0, "y": 0.0}
-    x = sum((scores.get(key, 0.0) / total) * anchor["x"] for key, anchor in anchors.items())
-    y = sum((scores.get(key, 0.0) / total) * anchor["y"] for key, anchor in anchors.items())
-    return {"x": x, "y": y}
-
-
 def weighted_delta(
     base: dict[str, float], candidate: dict[str, float], objectives: list[Objective]
 ) -> tuple[float, float, float]:
@@ -220,12 +285,12 @@ def recommendation_candidates(
     normalized: dict[str, dict[str, float]],
     objectives: list[Objective],
     limit: int = 5,
-) -> list[dict[str, Any]]:
+) -> list[AlternativeResult]:
     selected_scores = normalized.get(selected_id)
     if selected_scores is None:
         return []
 
-    recommendations: list[dict[str, Any]] = []
+    recommendations: list[AlternativeResult] = []
     for option in options:
         if option.id == selected_id:
             continue
@@ -233,17 +298,17 @@ def recommendation_candidates(
         if gain <= EPSILON:
             continue
         recommendations.append(
-            {
-                "id": option.id,
-                "name": option.name,
-                "gain": gain,
-                "loss": loss,
-                "ratio": ratio,
-                "explanation": explain_delta(selected_scores, normalized[option.id], objectives),
-            }
+            AlternativeResult(
+                id=option.id,
+                name=option.name,
+                gain=gain,
+                loss=loss,
+                ratio=ratio,
+                explanation=explain_delta(selected_scores, normalized[option.id], objectives),
+            )
         )
 
-    recommendations.sort(key=lambda item: (item["ratio"], item["gain"], -item["loss"]), reverse=True)
+    recommendations.sort(key=lambda item: (item.ratio, item.gain, -item.loss), reverse=True)
     return recommendations[:limit]
 
 
@@ -279,65 +344,154 @@ def configure_objectives(
     return configured
 
 
-def evaluate_tradeoffs(
+def compute_decision(
     options: list[Option],
     objectives: list[Objective],
     filters: dict[str, dict[str, Any]] | None = None,
     selected_id: str | None = None,
-) -> dict[str, Any]:
+) -> DecisionResult:
     filters = filters or {}
     feasible = apply_filters(options, filters)
     normalized, missing, ranges = normalize_options(feasible, objectives)
     objective_keys = [objective.key for objective in objectives]
     pareto, dominated_by = pareto_frontier(feasible, normalized, objective_keys)
-    anchors = objective_anchors(objectives)
+    normalized_matrix = np.array(
+        [[normalized[option.id].get(key, 0.0) for key in objective_keys] for option in feasible],
+        dtype=float,
+    )
+    pareto_mask = np.array([pareto[option.id] for option in feasible], dtype=bool)
 
-    response_options: list[dict[str, Any]] = []
+    recommendations = {
+        option.id: tuple(recommendation_candidates(option.id, feasible, normalized, objectives)) for option in feasible
+    }
+    if selected_id is None and feasible:
+        selected_id = feasible[0].id
+    if selected_id is not None and selected_id not in {option.id for option in feasible}:
+        selected_id = feasible[0].id if feasible else None
+
+    option_results: list[OptionResult] = []
     for option in feasible:
         dominators = dominated_by[option.id]
-        scores = normalized[option.id]
-        response_options.append(
-            {
-                "id": option.id,
-                "name": option.name,
-                "description": option.description,
-                "values": option.values,
-                "scores": scores,
-                "missing": missing[option.id],
-                "pareto": pareto[option.id],
-                "dominated_by": dominators[:5],
-                "position": option_position(scores, anchors),
-                "reason": pareto_reason(option, pareto[option.id], dominators, feasible),
-            }
+        option_results.append(
+            OptionResult(
+                id=option.id,
+                name=option.name,
+                description=option.description,
+                values=option.values,
+                scores=normalized[option.id],
+                missing=missing[option.id],
+                pareto=pareto[option.id],
+                dominated_by=tuple(dominators[:5]),
+                reason=pareto_reason(option, pareto[option.id], dominators, feasible),
+            )
         )
 
-    if selected_id is None and response_options:
-        selected_id = response_options[0]["id"]
-    selected = build_selected(selected_id, feasible, normalized, objectives, pareto, dominated_by) if selected_id else None
+    metadata = tuple(
+        ObjectiveMetadata(
+            key=objective.key,
+            label=objective.label,
+            goal=objective.goal,
+            weight=objective.weight,
+            minimum=ranges.get(objective.key, (0.0, 0.0))[0],
+            maximum=ranges.get(objective.key, (0.0, 0.0))[1],
+            target=objective.target,
+            formatter=objective.formatter,
+        )
+        for objective in objectives
+    )
 
-    return {
-        "objectives": [
+    return DecisionResult(
+        feasible_options=tuple(option_results),
+        objective_keys=tuple(objective_keys),
+        normalized_scores=normalized_matrix,
+        pareto_mask=pareto_mask,
+        dominated_by=dominated_by,
+        recommendations=recommendations,
+        objective_metadata=metadata,
+        selected_id=selected_id,
+        total_count=len(options),
+    )
+
+
+def evaluate_tradeoffs(
+    options: list[Option],
+    objectives: list[Objective],
+    filters: dict[str, dict[str, Any]] | None = None,
+    selected_id: str | None = None,
+    layout_mode: str = "polygon",
+) -> dict[str, Any]:
+    decision = compute_decision(options, objectives, filters=filters, selected_id=selected_id)
+    layout = compute_layout(
+        [option.id for option in decision.feasible_options],
+        decision.normalized_scores,
+        list(decision.objective_keys),
+        layout_mode,
+        pareto_mask=decision.pareto_mask,
+        objective_labels={metadata.key: metadata.label for metadata in decision.objective_metadata},
+    )
+    return merge_decision_layout(decision, layout)
+
+
+def merge_decision_layout(decision: DecisionResult, layout: dict[str, Any]) -> dict[str, Any]:
+    anchors = {
+        anchor["key"]: {
+            "x": anchor["x"],
+            "y": anchor["y"],
+            "angle": anchor.get("angle", 0.0),
+            "label": anchor.get("label", anchor["key"]),
+        }
+        for anchor in layout["anchors"]
+    }
+    response_options: list[dict[str, Any]] = []
+    for option in decision.feasible_options:
+        layout_position = layout["positions"].get(
+            option.id,
+            {"x": 0.0, "y": 0.0, "semanticX": 0.0, "semanticY": 0.0, "source": "polygon"},
+        )
+        option_payload = option.decision_dict()
+        option_payload.update(
             {
-                "key": objective.key,
-                "label": objective.label,
-                "goal": objective.goal,
-                "weight": objective.weight,
-                "min": ranges.get(objective.key, (0.0, 0.0))[0],
-                "max": ranges.get(objective.key, (0.0, 0.0))[1],
-                "target": objective.target,
-                "formatter": objective.formatter,
+                "x": layout_position["x"],
+                "y": layout_position["y"],
+                "position": {"x": layout_position["x"], "y": layout_position["y"]},
+                "layout": layout_position,
             }
-            for objective in objectives
-        ],
-        "anchors": anchors,
-        "options": response_options,
-        "selected": selected,
-        "summary": {
-            "total": len(options),
-            "feasible": len(feasible),
-            "pareto": sum(1 for value in pareto.values() if value),
-            "dominated": sum(1 for value in pareto.values() if not value),
+        )
+        response_options.append(option_payload)
+
+    recommendations = {
+        option_id: [alternative.to_dict() for alternative in alternatives]
+        for option_id, alternatives in decision.recommendations.items()
+    }
+    selected = build_selected_from_decision(decision, recommendations)
+    pareto_count = int(np.sum(decision.pareto_mask))
+    summary = {
+        "total": decision.total_count,
+        "feasible": len(decision.feasible_options),
+        "pareto": pareto_count,
+        "dominated": len(decision.feasible_options) - pareto_count,
+    }
+    layout_diagnostics = layout.get("diagnostics", layout.get("layoutDiagnostics", {}))
+    return {
+        "decision": {
+            "objectiveKeys": list(decision.objective_keys),
+            "feasibleCount": len(decision.feasible_options),
+            "paretoCount": pareto_count,
         },
+        "objectives": [metadata.to_dict() for metadata in decision.objective_metadata],
+        "anchors": anchors,
+        "layout": {
+            "mode": layout["mode"],
+            "fallback": layout["fallback"],
+            "warnings": layout["warnings"],
+            "anchors": layout["anchors"],
+            "diagnostics": layout_diagnostics,
+            "layoutDiagnostics": layout_diagnostics,
+        },
+        "options": response_options,
+        "recommendations": recommendations,
+        "selected": selected,
+        "summary": summary,
     }
 
 
@@ -349,25 +503,16 @@ def pareto_reason(option: Option, is_pareto: bool, dominators: list[str], option
     return f"Dominated by {', '.join(visible)} on the active objectives."
 
 
-def build_selected(
-    selected_id: str,
-    options: list[Option],
-    normalized: dict[str, dict[str, float]],
-    objectives: list[Objective],
-    pareto: dict[str, bool],
-    dominated_by: dict[str, list[str]],
+def build_selected_from_decision(
+    decision: DecisionResult,
+    recommendations: dict[str, list[dict[str, Any]]],
 ) -> dict[str, Any] | None:
-    selected = next((option for option in options if option.id == selected_id), None)
+    selected_id = decision.selected_id
+    if selected_id is None:
+        return None
+    selected = next((option for option in decision.feasible_options if option.id == selected_id), None)
     if selected is None:
         return None
-    return {
-        "id": selected.id,
-        "name": selected.name,
-        "description": selected.description,
-        "values": selected.values,
-        "scores": normalized[selected.id],
-        "pareto": pareto[selected.id],
-        "dominated_by": dominated_by[selected.id][:5],
-        "reason": pareto_reason(selected, pareto[selected.id], dominated_by[selected.id], options),
-        "alternatives": recommendation_candidates(selected.id, options, normalized, objectives),
-    }
+    payload = selected.decision_dict()
+    payload["alternatives"] = recommendations.get(selected.id, [])
+    return payload

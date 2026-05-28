@@ -36,6 +36,7 @@ def evaluate(request: HttpRequest) -> JsonResponse:
         active_objectives,
         filters=payload.get("filters") or {},
         selected_id=payload.get("selectedId"),
+        layout_mode=payload.get("layoutMode", "polygon"),
     )
     return JsonResponse(result)
 

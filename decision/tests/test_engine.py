@@ -78,8 +78,8 @@ class RecommendationTests(SimpleTestCase):
 
         recommendations = recommendation_candidates("selected", options, normalized, objectives)
 
-        self.assertEqual(recommendations[0]["id"], "balanced")
-        self.assertIn("+30% MPG", recommendations[0]["explanation"])
+        self.assertEqual(recommendations[0].id, "balanced")
+        self.assertIn("+30% MPG", recommendations[0].explanation)
 
     def test_evaluate_returns_positions_and_selected_explanations(self):
         objectives = [
