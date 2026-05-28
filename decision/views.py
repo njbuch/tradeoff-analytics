@@ -9,13 +9,13 @@ from django.http import FileResponse, Http404, HttpRequest, HttpResponse, JsonRe
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_GET, require_POST
 
-from .catalog import catalog_payload, load_catalog
+from .catalog import catalog_payload, load_catalog, normalize_dataset_id
 from .engine import configure_objectives, evaluate_tradeoffs
 
 
 @require_GET
-def catalog(_: HttpRequest) -> JsonResponse:
-    return JsonResponse(catalog_payload())
+def catalog(request: HttpRequest) -> JsonResponse:
+    return JsonResponse(catalog_payload(request.GET.get("dataset")))
 
 
 @csrf_exempt
@@ -26,7 +26,8 @@ def evaluate(request: HttpRequest) -> JsonResponse:
     except json.JSONDecodeError:
         return JsonResponse({"error": "Invalid JSON body."}, status=400)
 
-    catalog_data = load_catalog()
+    dataset_id = normalize_dataset_id(payload.get("datasetId"))
+    catalog_data = load_catalog(dataset_id)
     active_objectives = configure_objectives(catalog_data["objectives"], payload.get("objectives"))
     if not active_objectives:
         return JsonResponse({"error": "At least one active objective is required."}, status=400)

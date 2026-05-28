@@ -497,7 +497,7 @@ def merge_decision_layout(decision: DecisionResult, layout: dict[str, Any]) -> d
 
 def pareto_reason(option: Option, is_pareto: bool, dominators: list[str], options: list[Option]) -> str:
     if is_pareto:
-        return "On the Pareto frontier because no feasible car is at least as good on every active objective while improving one."
+        return "On the Pareto frontier because no feasible option is at least as good on every active objective while improving one."
     names = {candidate.id: candidate.name for candidate in options}
     visible = [names.get(option_id, option_id) for option_id in dominators[:3]]
     return f"Dominated by {', '.join(visible)} on the active objectives."

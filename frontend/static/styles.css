@@ -102,6 +102,43 @@ section {
   height: 34px;
 }
 
+.dataset-switcher {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.dataset-switcher button {
+  display: grid;
+  gap: 3px;
+  min-height: 58px;
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.dataset-switcher button.active {
+  border-color: #2374ab;
+  background: #eef8ff;
+}
+
+.dataset-switcher span {
+  font-weight: 800;
+}
+
+.dataset-switcher small {
+  color: #607080;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.dataset-description {
+  margin: 10px 0 0;
+  color: #586878;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .scenario-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -746,6 +783,10 @@ meter {
   .layout-toggle {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dataset-switcher {
+    grid-template-columns: 1fr;
   }
 
   .tradeoff-map {

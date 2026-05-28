@@ -108,7 +108,12 @@ def stop() -> int:
         return 0
     try:
         if os.name == "nt":
-            subprocess.run(["taskkill", "/PID", str(pid), "/F", "/T"], check=False, stdout=subprocess.DEVNULL)
+            subprocess.run(
+                ["taskkill", "/PID", str(pid), "/F", "/T"],
+                check=False,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
         else:
             os.kill(pid, signal.SIGTERM)
     except OSError:

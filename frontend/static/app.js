@@ -7,25 +7,11 @@
     .y((point) => point[1]);
   const objectiveColors = ["#2374ab", "#f59e0b", "#7c3aed", "#10b981", "#ef4444", "#475569"];
 
-  const scenarios = [
-    {
-      name: "Balanced",
-      objectives: ["price", "MPGCombined", "averageRating", "reviewsCount"],
-      filters: { price: { max: 60000 }, MPGCombined: { min: 24 } }
-    },
-    {
-      name: "Performance",
-      objectives: ["price", "power", "engineSize", "averageRating"],
-      filters: { price: { max: 90000 } }
-    },
-    {
-      name: "Efficient",
-      objectives: ["price", "MPGCombined", "averageRating", "reviewsCount"],
-      filters: { MPGCombined: { min: 30 }, price: { max: 50000 } }
-    }
-  ];
-
   function App() {
+    const [datasetId, setDatasetId] = useState("cars");
+    const [datasets, setDatasets] = useState([]);
+    const [catalogInfo, setCatalogInfo] = useState({ subject: "Cars", description: "", source: "" });
+    const [scenarios, setScenarios] = useState([]);
     const [catalogObjectives, setCatalogObjectives] = useState([]);
     const [filterFields, setFilterFields] = useState([]);
     const [objectives, setObjectives] = useState([]);
@@ -41,9 +27,23 @@
     const [error, setError] = useState(null);
 
     useEffect(() => {
-      fetch("/api/catalog/")
+      setEvaluation(null);
+      setSelectedId(null);
+      setFilters({});
+      setComparisonIds([]);
+      setFinalId(null);
+      setFocusKey(null);
+      setError(null);
+      fetch(`/api/catalog/?dataset=${encodeURIComponent(datasetId)}`)
         .then((response) => response.json())
         .then((payload) => {
+          setDatasets(payload.datasets || []);
+          setCatalogInfo({
+            subject: payload.subject || "Dataset",
+            description: payload.description || "",
+            source: payload.source || ""
+          });
+          setScenarios(payload.scenarios || []);
           setCatalogObjectives(payload.objectives);
           setFilterFields(payload.filters);
           setObjectives(
@@ -56,8 +56,8 @@
             }))
           );
         })
-        .catch(() => setError("Could not load the car catalog."));
-    }, []);
+        .catch(() => setError("Could not load the selected dataset."));
+    }, [datasetId]);
 
     const activeObjectives = useMemo(
       () => objectives.filter((objective) => objective.active).slice(0, 6),
@@ -74,6 +74,7 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           objectives: activeObjectives.map(({ key, goal, weight }) => ({ key, goal, weight })),
+          datasetId,
           filters,
           selectedId,
           layoutMode
@@ -100,7 +101,7 @@
           }
         });
       return () => controller.abort();
-    }, [activeObjectives, filters, selectedId, layoutMode]);
+    }, [activeObjectives, datasetId, filters, selectedId, layoutMode]);
 
     const labelMap = useMemo(() => {
       const labels = {};
@@ -112,6 +113,25 @@
       }
       return labels;
     }, [catalogObjectives, filterFields]);
+
+    const fieldMetaMap = useMemo(() => {
+      const fields = {};
+      for (const objective of catalogObjectives) {
+        fields[objective.key] = {
+          label: objective.label,
+          formatter: objective.formatter
+        };
+      }
+      for (const field of filterFields) {
+        fields[field.key] = {
+          label: field.label,
+          formatter: field.formatter
+        };
+      }
+      return fields;
+    }, [catalogObjectives, filterFields]);
+
+    const itemLabel = useMemo(() => singularSubject(catalogInfo.subject), [catalogInfo.subject]);
 
     function reset() {
       setFilters({});
@@ -127,7 +147,7 @@
           label: objective.label,
           active: objective.activeDefault,
           goal: objective.goal,
-          weight: 1
+          weight: objective.weight
         }))
       );
     }
@@ -155,7 +175,7 @@
         current.map((objective) => ({
           ...objective,
           active: scenario.objectives.includes(objective.key),
-          goal: objective.key === "price" ? "min" : objective.goal
+          goal: scenario.goals && scenario.goals[objective.key] ? scenario.goals[objective.key] : objective.goal
         }))
       );
     }
@@ -191,9 +211,18 @@
         h(
           "div",
           { className: "panel-heading" },
-          h("div", null, h("p", { className: "eyebrow" }, "Cars"), h("h1", null, "Tradeoff Analytics")),
+          h("div", null, h("p", { className: "eyebrow" }, catalogInfo.subject), h("h1", null, "Tradeoff Analytics")),
           h("button", { className: "icon-button text-reset", onClick: reset, title: "Reset" }, "Reset")
         ),
+        h(DatasetSwitcher, { datasets, value: datasetId, onChange: setDatasetId }),
+        catalogInfo.description
+          ? h(
+              "p",
+              { className: "dataset-description" },
+              catalogInfo.description,
+              catalogInfo.source ? ` Source: ${catalogInfo.source}.` : ""
+            )
+          : null,
         h(
           "div",
           { className: "scenario-row" },
@@ -304,7 +333,9 @@
               onFocus: (key) => setFocusKey((current) => (current === key ? null : key)),
               onAddCompare: addForComparison,
               onViewMode: setViewMode,
-              labelMap
+              labelMap,
+              fieldMetaMap,
+              itemLabel
             })
           : h("div", { className: "empty-state" }, "Loading decision map...")
       ),
@@ -331,18 +362,44 @@
                     comparisonFull: comparisonIds.length >= 6,
                     isCompared: comparisonIds.includes(selected.id),
                     isFinal: finalId === selected.id,
+                    fieldMetaMap,
+                    itemLabel,
                     onAddCompare: () => addForComparison(selected.id),
                     onSetFinal: () => setFinalId(selected.id)
                   })
-                : h("div", { className: "empty-state" }, "Select a car to inspect its tradeoffs."),
+                : h("div", { className: "empty-state" }, `Select a ${itemLabel.toLowerCase()} to inspect its tradeoffs.`),
               h(ComparisonTray, {
                 options: comparisonOptions,
                 finalId,
+                itemLabel,
                 onRemove: removeComparison,
                 onCompare: () => setViewMode("compare")
               })
             )
           : h("div", { className: "empty-state" }, "Select criteria to begin.")
+      )
+    );
+  }
+
+  function DatasetSwitcher({ datasets, value, onChange }) {
+    if (!datasets.length) {
+      return null;
+    }
+    return h(
+      "div",
+      { className: "dataset-switcher", role: "group", "aria-label": "Dataset" },
+      datasets.map((dataset) =>
+        h(
+          "button",
+          {
+            key: dataset.id,
+            className: value === dataset.id ? "active" : "",
+            onClick: () => onChange(dataset.id),
+            title: dataset.description || dataset.label
+          },
+          h("span", null, dataset.label),
+          dataset.source ? h("small", null, dataset.source) : null
+        )
       )
     );
   }
@@ -392,7 +449,7 @@
     const hasRange = Number.isFinite(field.min) && Number.isFinite(field.max) && field.max > field.min;
     const minValue = value.min === undefined ? field.min : value.min;
     const maxValue = value.max === undefined ? field.max : value.max;
-    const step = field.key === "averageRating" || field.key === "engineSize" ? 0.1 : 1;
+    const step = filterStep(field);
     return h(
       "div",
       { className: "filter-control" },
@@ -712,7 +769,15 @@
     );
   }
 
-  function OptionTable({ evaluation, selectedId, comparisonIds, onSelect, onAddCompare, labelMap }) {
+  function OptionTable({
+    evaluation,
+    selectedId,
+    comparisonIds,
+    onSelect,
+    onAddCompare,
+    fieldMetaMap,
+    itemLabel
+  }) {
     const rows = [...evaluation.options].sort((left, right) => {
       if (left.pareto !== right.pareto) {
         return left.pareto ? -1 : 1;
@@ -732,7 +797,7 @@
             "tr",
             null,
             h("th", null, ""),
-            h("th", null, "Car"),
+            h("th", null, itemLabel),
             h("th", null, "Fit"),
             evaluation.objectives.map((objective) => h("th", { key: objective.key }, objective.label)),
             h("th", null, "Action")
@@ -762,7 +827,7 @@
                   "td",
                   { key: objective.key },
                   h("b", null, `${Math.round((option.scores[objective.key] || 0) * 100)}%`),
-                  h("span", null, formatValue(objective.key, option.values[objective.key], labelMap))
+                  h("span", null, formatValue(objective.key, option.values[objective.key], fieldMetaMap))
                 )
               ),
               h(
@@ -936,6 +1001,7 @@
     comparisonFull,
     isCompared,
     isFinal,
+    fieldMetaMap,
     onAddCompare,
     onSetFinal
   }) {
@@ -996,8 +1062,8 @@
             h(
               "div",
               { key },
-              h("dt", null, labelMap[key] || key),
-              h("dd", null, formatValue(key, value, labelMap))
+              h("dt", null, fieldMetaMap[key]?.label || labelMap[key] || key),
+              h("dd", null, formatValue(key, value, fieldMetaMap))
             )
           )
         )
@@ -1024,13 +1090,13 @@
     );
   }
 
-  function ComparisonTray({ options, finalId, onRemove, onCompare }) {
+  function ComparisonTray({ options, finalId, itemLabel, onRemove, onCompare }) {
     return h(
       "section",
       { className: "comparison-tray" },
       h("h3", null, `Candidates Added for Comparison (${options.length}/6)`),
       options.length === 0
-        ? h("p", { className: "description" }, "Add cars from the graph, table, or candidate list.")
+        ? h("p", { className: "description" }, `Add ${itemLabel.toLowerCase()}s from the graph, table, or candidate list.`)
         : h(
             "div",
             { className: "comparison-chip-list" },
@@ -1088,13 +1154,20 @@
     return objectives.find((objective) => objective.key === key)?.label || key;
   }
 
-  function formatValue(key, value) {
+  function formatValue(key, value, fieldMetaMap = {}) {
     if (value === null || value === undefined || value === "") {
       return "Missing";
     }
     const number = Number(value);
     if (!Number.isFinite(number)) {
       return String(value);
+    }
+    const formatter = fieldMetaMap[key]?.formatter;
+    if (formatter) {
+      const formatted = applyFormatter(number, formatter);
+      if (formatted) {
+        return formatted;
+      }
     }
     if (key === "price") {
       return `$${Math.round(number).toLocaleString()}`;
@@ -1112,6 +1185,63 @@
       return `${number.toLocaleString(undefined, { maximumFractionDigits: 1 })} L`;
     }
     return number.toLocaleString(undefined, { maximumFractionDigits: 1 });
+  }
+
+  function applyFormatter(number, formatter) {
+    if (formatter === "year") {
+      return String(Math.round(number));
+    }
+    if (formatter === "km") {
+      return `${Math.round(number).toLocaleString()} km`;
+    }
+    if (formatter === "kWh/100km") {
+      return `${number.toLocaleString(undefined, { maximumFractionDigits: 1 })} kWh/100 km`;
+    }
+    if (formatter === "kWh") {
+      return `${number.toLocaleString(undefined, { maximumFractionDigits: 1 })} kWh`;
+    }
+    if (formatter === "kW") {
+      return `${number.toLocaleString(undefined, { maximumFractionDigits: 1 })} kW`;
+    }
+    if (formatter === "V") {
+      return `${Math.round(number).toLocaleString()} V`;
+    }
+
+    const decimals = formatter.match(/number:(\d+)/);
+    const prefix = formatter.match(/taPrefix:'([^']+)'/);
+    const suffix = formatter.match(/taSuffix:'([^']+)'/);
+    if (decimals || prefix || suffix) {
+      return `${prefix ? prefix[1] : ""}${number.toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: decimals ? Number(decimals[1]) : 1
+      })}${suffix ? suffix[1] : ""}`;
+    }
+    return null;
+  }
+
+  function filterStep(field) {
+    const formatter = field.formatter || "";
+    if (formatter.includes("number:1") || ["kWh/100km", "kWh", "kW"].includes(formatter)) {
+      return 0.1;
+    }
+    return 1;
+  }
+
+  function singularSubject(subject) {
+    const normalized = String(subject || "Options").trim();
+    if (/electric vehicles/i.test(normalized)) {
+      return "Vehicle";
+    }
+    if (/cars/i.test(normalized)) {
+      return "Car";
+    }
+    if (normalized.endsWith("ies")) {
+      return `${normalized.slice(0, -3)}y`;
+    }
+    if (normalized.endsWith("s")) {
+      return normalized.slice(0, -1);
+    }
+    return normalized || "Option";
   }
 
   function cleanFilter(value) {
